@@ -1,0 +1,360 @@
+/* 脚本データ。絵は描かず「何を・誰が・どこで」だけを書く。
+ * 1コマ = { scene, cap:{ja,en}, chars:[{id,at,pose,face,item,...}], lines:[{who,ja,en,type}], props, fx, sfx }
+ * 使える部品は MangaEngine.catalog() で確認できる。 */
+window.MANGA = {
+  series: {
+    title: { ja: 'はじめてニッポン', en: 'First Time in Japan', zh: '初訪日本', ko: '처음 만나는 일본', es: 'Primera vez en Japón', pt: 'Primeira vez no Japão' },
+    tagline: {
+      ja: 'カナダから来た兄妹ミアとレオが、日本で驚いたことを6コマで。',
+      en: 'Siblings Mia and Leo from Canada share what surprised them in Japan, six panels at a time.',
+      zh: '來自加拿大的兄妹米亞和里歐，用6格漫畫介紹在日本嚇一跳的事。',
+      ko: '캐나다에서 온 남매 미아와 레오가 일본에서 놀란 일을 6컷 만화로 소개합니다.',
+      es: 'Los hermanos Mia y Leo, de Canadá, cuentan en seis viñetas lo que les sorprendió de Japón.',
+      pt: 'Os irmãos Mia e Leo, do Canadá, contam em seis quadrinhos o que os surpreendeu no Japão.'
+    }
+  },
+  cast: {
+    mia: { name: { ja: 'ミア', en: 'Mia', zh: '米亞', ko: '미아', es: 'Mia', pt: 'Mia' }, female: true, skin: '#fde3cf', hair: 'long', hairColor: '#e9c46a', top: '#ec7a6f', bottom: '#34507a', skirt: true,
+      accent: '#e2607a',
+      role: { ja: '妹・女性目線', en: 'Sister · her view', zh: '妹妹・女生視角', ko: '여동생 · 그녀의 시선', es: 'Hermana · su mirada', pt: 'Irmã · o olhar dela' },
+      bio: { ja: 'カナダ出身の大学生。好奇心旺盛で、何でもまず試してみる。', en: 'A university student from Canada. Curious, tries everything first.',
+        zh: '來自加拿大的大學生。好奇心旺盛，什麼都想先試試看。', ko: '캐나다 출신 대학생. 호기심이 많아 뭐든 먼저 해 본다.',
+        es: 'Universitaria de Canadá. Curiosa, lo prueba todo primero.', pt: 'Universitária do Canadá. Curiosa, experimenta tudo primeiro.' } },
+    leo: { name: { ja: 'レオ', en: 'Leo', zh: '里歐', ko: '레오', es: 'Leo', pt: 'Leo' }, skin: '#f6d6bd', hair: 'short', hairColor: '#9a5a32', top: '#2f9a8f', bottom: '#4a4f5c',
+      accent: '#23928a',
+      role: { ja: '兄・男性目線', en: 'Brother · his view', zh: '哥哥・男生視角', ko: '오빠 · 그의 시선', es: 'Hermano · su mirada', pt: 'Irmão · o olhar dele' },
+      bio: { ja: 'ミアの兄。慎重派だけど、食べることには目がない。', en: "Mia's older brother. Cautious, but can't resist good food.",
+        zh: '米亞的哥哥。個性謹慎，但對美食毫無抵抗力。', ko: '미아의 오빠. 신중한 편이지만 맛있는 음식엔 약하다.',
+        es: 'El hermano mayor de Mia. Prudente, pero no resiste la buena comida.', pt: 'O irmão mais velho de Mia. Cauteloso, mas não resiste a uma boa comida.' } },
+    clerk: { name: { ja: '店員', en: 'Clerk' }, skin: '#f3d3b6', hair: 'short', hairColor: '#2a2a2a', top: '#3f86c9', bottom: '#3b3f48', badge: true },
+    chef: { name: { ja: '店主', en: 'Chef' }, skin: '#efcaa8', hair: 'short', hairColor: '#2a2a2a', top: '#f7f7f7', bottom: '#3b3f48', hat: 'headband' },
+    police: { name: { ja: 'おまわりさん', en: 'Officer' }, skin: '#f3d3b6', hair: 'short', hairColor: '#2a2a2a', top: '#2c3e66', bottom: '#2c3e66', hat: 'police' },
+    oldman: { name: { ja: 'おじいさん', en: 'Old man' }, skin: '#f0cfae', hair: 'bald', hairColor: '#bdbdbd', top: '#8b6d4c', bottom: '#5a5148' },
+    salaryman: { name: { ja: '会社員', en: 'Office worker' }, skin: '#f3d3b6', hair: 'short', hairColor: '#222', top: '#3b4458', bottom: '#3b4458', tie: true },
+    woman: { name: { ja: '女性', en: 'Woman' }, female: true, skin: '#f8dcc4', hair: 'bob', hairColor: '#222', top: '#d9c3a5', bottom: '#6b7a8f', skirt: true },
+    okami: { name: { ja: '女将', en: 'Innkeeper' }, female: true, skin: '#f8dcc4', hair: 'bun', hairColor: '#222', top: '#8c5a8f', bottom: '#8c5a8f', robe: true, obi: '#e8c46a' },
+    cashier: { name: { ja: 'レジ係', en: 'Cashier' }, female: true, skin: '#e8b994', hair: 'bun', hairColor: '#7a4a2c', top: '#e0a03a', bottom: '#3b3f48' },
+    local: { name: { ja: '乗客', en: 'Passenger' }, skin: '#f6d6bd', hair: 'short', hairColor: '#d8b04a', top: '#c94f7c', bottom: '#3a4a5a' }
+  },
+  episodes: [
+    {
+      no: 1, pov: 'leo', title: { ja: '静かすぎる電車', en: 'The Too-Quiet Train', zh: '安靜過頭的電車', ko: '너무 조용한 전철', es: 'El tren demasiado silencioso', pt: 'O trem silencioso demais' },
+      cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // アフィリエイトリンク（Wi-Fi予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep1_scene1.jpg', imageSize: [1536, 1024], focus: 0.33, anchors: { leo: { x: 99, y: 108, s: .9 }, mia: { x: 161, y: 135, s: .8 } },
+          scene: 'airport',
+          cap: { ja: '成田空港に到着。ついに日本だ！', en: 'Landed at Narita. Japan at last!', zh: '抵達成田機場。終於來到日本了！', ko: '나리타 공항 도착. 드디어 일본이다!', es: 'Llegamos a Narita. ¡Por fin en Japón!', pt: 'Chegamos em Narita. Finalmente no Japão!' },
+          chars: [{ id: 'leo', at: 'L', pose: 'wave', face: 'happy' }, { id: 'mia', at: 'R', pose: 'handsup', face: 'happy' }],
+          lines: [{ who: 'leo', ja: '日本だー！', en: 'Japan!!', zh: '日本到了～！', ko: '일본이다~!', es: '¡¡Japón!!', pt: 'Japão!!', type: 'shout' },
+            { who: 'mia', ja: 'やったね！', en: 'We made it!', zh: '我們到了！', ko: '드디어 왔어!', es: '¡Lo logramos!', pt: 'Conseguimos!' }] },
+        { image: 'images/web/ep1_scene2.jpg', imageSize: [1536, 1024], focus: 0.26, anchors: { leo: { x: 86, y: 107, s: .9 }, mia: { x: 130, y: 125, s: .8 } },
+          scene: 'platform',
+          cap: { ja: '駅のホーム。みんな足元の印にそって並んでいる。', en: 'On the platform, everyone lines up on the painted marks.', zh: '月台上，大家都沿著地上的標示排隊。', ko: '승강장에서는 모두 바닥 표시에 맞춰 줄을 선다.', es: 'En el andén, todos hacen fila sobre las marcas del suelo.', pt: 'Na plataforma, todos fazem fila sobre as marcas no chão.' },
+          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'salaryman', at: 'RC', facing: 'left' }, { id: 'woman', at: 'R', facing: 'left', item: 'phone', pose: 'hold' }],
+          lines: [{ who: 'leo', ja: '列がきれい…', en: 'Such a neat line...', zh: '隊伍好整齊…', ko: '줄이 정말 반듯해…', es: 'Qué fila tan ordenada...', pt: 'Que fila organizada...' }] },
+        { image: 'images/web/ep1_scene3.jpg', imageSize: [1536, 1024], focus: 0.47, anchors: { leo: { x: 154, y: 107, s: .9 }, mia: { x: 216, y: 128, s: .8 } },
+          scene: 'train',
+          cap: { ja: '電車の中。なんだか、とても静か。', en: "Inside the train. It's really quiet.", zh: '電車裡，不知為何非常安靜。', ko: '전철 안. 왠지 너무 조용하다.', es: 'Dentro del tren. Hay un silencio total.', pt: 'Dentro do trem. Está muito silencioso.' },
+          chars: [{ id: 'salaryman', at: 'L', face: 'calm' }, { id: 'leo', at: 'C', face: 'confused' }, { id: 'woman', at: 'R', pose: 'hold', item: 'phone' }],
+          lines: [{ who: 'leo', ja: '誰もしゃべってない…', en: "Nobody's talking...", zh: '沒有人在說話…', ko: '아무도 말을 안 해…', es: 'Nadie habla...', pt: 'Ninguém está falando...', type: 'think' }],
+          sfx: [{ ja: 'シーン…', en: 'silence...', zh: '靜悄悄…', ko: '조용…', es: 'silencio...', pt: 'silêncio...', x: 320, y: 62 }] },
+        { image: 'images/web/ep1_scene4.jpg', imageSize: [1536, 1024], focus: 0.48, anchors: { leo: { x: 154, y: 86, s: 1.2 }, mia: { x: 242, y: 117, s: 1 } },
+          scene: 'train',
+          cap: { ja: 'そのとき、ぼくのスマホが鳴った。', en: 'Then my phone rang.', zh: '就在這時，我的手機響了。', ko: '그때, 내 휴대폰이 울렸다.', es: 'Entonces sonó mi teléfono.', pt: 'Então meu celular tocou.' },
+          chars: [{ id: 'salaryman', at: 'L', face: 'surprised' }, { id: 'leo', at: 'C', pose: 'hold', item: 'phone', face: 'shock' }, { id: 'woman', at: 'R', face: 'surprised' }],
+          sfx: [{ ja: 'プルルル！', en: 'RIIING!', zh: '鈴鈴鈴！', ko: '따르릉!', es: '¡RIIING!', pt: 'TRIIIM!', x: 300, y: 64, rot: -6, color: '#d9473a' }] },
+        { image: 'images/web/ep1_scene5.jpg', imageSize: [1536, 1024], focus: 0.48, anchors: { mia: { x: 227, y: 122, s: .9 }, leo: { x: 146, y: 83, s: 1.1 } },
+          scene: 'train',
+          cap: { ja: '車内での通話はマナー違反。降りてからかけ直すのが日本流。', en: 'Calls on trains are bad manners. Call back after you get off.', zh: '在車廂內講電話是不禮貌的。下車後再回電吧。', ko: '전철 안 통화는 매너 위반. 내린 뒤에 다시 걸자.', es: 'Hablar por teléfono en el tren es de mala educación. Llama al bajar.', pt: 'Falar ao telefone no trem é falta de educação. Ligue depois de descer.' },
+          chars: [{ id: 'mia', at: 'L', face: 'normal', pose: 'point' }, { id: 'leo', at: 'R', pose: 'hold', item: 'phone', face: 'embarrassed' }],
+          lines: [{ who: 'mia', ja: '電話は降りてから！', en: 'Call back after we get off!', zh: '下車再回電！', ko: '내리고 나서 전화해!', es: '¡Llama cuando bajemos!', pt: 'Liga quando a gente descer!', type: 'whisper', pos: { x: 292, y: 12 } },
+            { who: 'leo', ja: 'ご、ごめん', en: 'S-sorry', zh: '對、對不起', ko: '미, 미안', es: 'P-perdón', pt: 'D-desculpa', type: 'whisper', pos: { x: 58, y: 66 } }] },
+        { image: 'images/web/ep1_scene6.jpg', imageSize: [1536, 1024], focus: 0.27, anchors: { leo: { x: 68, y: 125, s: .9 }, mia: { x: 156, y: 138, s: .8 }, announce: { x: 352, y: 112, s: .3 } },
+          scene: 'platform',
+          cap: { ja: '電車は時刻表どおり。1分遅れただけで、おわびの放送。', en: 'Trains run on time. Even a 1-minute delay gets an apology.', zh: '電車準時發車，晚1分鐘也會廣播道歉。', ko: '전철은 시간표대로. 1분만 늦어도 사과 방송이 나온다.', es: 'Los trenes son puntuales. Hasta 1 minuto de retraso merece una disculpa.', pt: 'Os trens são pontuais. Até 1 minuto de atraso gera um pedido de desculpas.' },
+          chars: [{ id: 'leo', at: 'LC', face: 'shock' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'announce', from: 'right', ja: '1分遅れて申し訳ございません', en: 'We apologize for the 1-minute delay.', zh: '列車延誤1分鐘，非常抱歉。', ko: '1분 지연되어 죄송합니다.', es: 'Disculpen el retraso de 1 minuto.', pt: 'Pedimos desculpas pelo atraso de 1 minuto.', type: 'off', pos: { x: 300, y: 8 } },
+            { who: 'leo', ja: '1分で謝るの!?', en: 'Sorry for ONE minute?!', zh: '才1分鐘就道歉!?', ko: '1분 늦었다고 사과해!?', es: '¿¡Se disculpan por UN minuto!?', pt: 'Pedem desculpas por UM minuto?!', type: 'shout' }] }
+      ],
+      tip: {
+        ja: ['電車内での通話は控え、スマホはマナーモードに。', '電車はほぼ時刻表どおり。乗り換えアプリが便利。', 'ホームでは足元の印にそって並ぶ。'],
+        en: ['Avoid phone calls on trains; set your phone to silent.', 'Trains run almost exactly on schedule. A transit app helps.', 'Line up on the marks painted on the platform.'],
+        zh: ['在電車內請避免講電話，手機請調成靜音模式。', '電車幾乎都準時行駛，使用轉乘查詢App很方便。', '在月台上請沿著地上的標示排隊。'],
+        ko: ['전철 안에서는 통화를 삼가고 휴대폰은 무음으로.', '전철은 거의 시간표대로 운행. 환승 검색 앱이 편리하다.', '승강장에서는 바닥 표시에 맞춰 줄을 선다.'],
+        es: ['Evita las llamadas en el tren y pon el teléfono en silencio.', 'Los trenes son casi siempre puntuales. Una app de transporte ayuda mucho.', 'Haz fila sobre las marcas pintadas en el andén.'],
+        pt: ['Evite ligações no trem e deixe o celular no silencioso.', 'Os trens seguem o horário quase sempre. Um app de transporte ajuda.', 'Faça fila sobre as marcas pintadas na plataforma.']
+      }
+    },
+    {
+      no: 2, pov: 'mia', title: { ja: 'コンビニは魔法のお店', en: 'The Magic Convenience Store', zh: '便利商店是魔法商店', ko: '편의점은 마법의 가게', es: 'La tienda mágica de conveniencia', pt: 'A loja de conveniência mágica' },
+      cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // アフィリエイトリンク（鉄道予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep2_scene1.jpg', imageSize: [940, 1672], anchors: { leo: { x: 143, y: 287, s: 1.1 }, mia: { x: 238, y: 353, s: 1 } },
+          scene: 'konbini',
+          cap: { ja: 'ホテルの近くのコンビニへ。明るくて、きれい！', en: 'A convenience store near our hotel. So bright and clean!', zh: '走進飯店附近的便利商店。好明亮、好乾淨！', ko: '호텔 근처 편의점에 들어갔다. 밝고 깨끗해!', es: 'Una tienda cerca del hotel. ¡Qué luminosa y limpia!', pt: 'Uma loja perto do hotel. Tão clara e limpa!' },
+          chars: [{ id: 'leo', at: 'L', pose: 'wave', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: '品ぞろえすごい！', en: 'Look at all this!', zh: '東西好多！', ko: '물건 엄청 많다!', es: '¡Mira cuánta cosa!', pt: 'Olha quanta coisa!', type: 'shout' },
+            { who: 'mia', ja: 'お弁当もある！', en: 'They have bento!', zh: '還有便當！', ko: '도시락도 있어!', es: '¡Hay bento!', pt: 'Tem bentô!' }] },
+        { image: 'images/web/ep2_scene2.jpg', imageSize: [940, 1672], anchors: { leo: { x: 98, y: 279, s: 1.2 }, mia: { x: 213, y: 349, s: 1.2 } },
+          scene: 'konbini',
+          cap: { ja: 'おにぎりだけで、こんなに種類がある。', en: 'So many kinds of rice balls alone!', zh: '光是飯糰就有這麼多種。', ko: '주먹밥 종류만 해도 이렇게 많다.', es: '¡Cuántos tipos de onigiri (bolas de arroz)!', pt: 'Quantos tipos de onigiri (bolinho de arroz)!' },
+          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', pose: 'think', face: 'moved' }],
+          lines: [{ who: 'leo', ja: 'ツナマヨが人気だよ', en: 'Tuna mayo is a classic', zh: '鮪魚美乃滋最受歡迎', ko: '참치마요가 인기래', es: 'El de atún con mayo triunfa', pt: 'Atum com maionese é clássico' },
+            { who: 'mia', ja: 'ぜんぶ食べたい…', en: 'I want them all...', zh: '每個都想吃…', ko: '다 먹고 싶어…', es: 'Los quiero todos...', pt: 'Quero todos...', type: 'think' }] },
+        { image: 'images/web/ep2_scene3.jpg', imageSize: [940, 1672], anchors: { mia: { x: 98, y: 374, s: 1.2 }, leo: { x: 238, y: 294, s: 1.3 } },
+          scene: 'register',
+          cap: { ja: 'レジ横には、ほかほかの肉まんも。', en: 'By the register: steaming hot meat buns!', zh: '收銀台旁還有熱騰騰的肉包。', ko: '계산대 옆에는 따끈따끈한 고기 찐빵도.', es: 'Junto a la caja: bollos de carne calentitos.', pt: 'Ao lado do caixa: pãezinhos de carne quentinhos.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', pose: 'hold', face: 'moved' }],
+          lines: [{ who: 'mia', ja: 'いいなー！', en: 'Lucky you!', zh: '好羨慕！', ko: '좋겠다~!', es: '¡Qué envidia!', pt: 'Que inveja!' },
+            { who: 'leo', ja: 'ふわっふわ！', en: 'So fluffy!', zh: '好鬆軟！', ko: '폭신폭신해!', es: '¡Qué esponjoso!', pt: 'Que fofinho!', type: 'shout' }] },
+        { image: 'images/web/ep2_scene4.jpg', imageSize: [940, 1672], anchors: { mia: { x: 68, y: 374, s: 1 }, leo: { x: 153, y: 328, s: 1 }, clerk: { x: 289, y: 304, s: 1 } },
+          scene: 'register',
+          cap: { ja: '店員さんは笑顔でていねい。温めやお箸も聞いてくれる。', en: 'Staff are polite and offer to heat food or add chopsticks.', zh: '店員笑容親切，還會問要不要加熱、要不要筷子。', ko: '점원은 늘 친절하다. 데워 줄지, 젓가락이 필요한지도 물어본다.', es: 'El personal es amable: ofrece calentar la comida y palillos.', pt: 'Os atendentes são gentis e oferecem esquentar a comida e hashis.' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved' }, { id: 'leo', at: 'C', face: 'happy' }, { id: 'clerk', at: 'R', pose: 'bow', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'ありがとう！', en: 'Thank you!', zh: '謝謝！', ko: '고마워요!', es: '¡Gracias!', pt: 'Obrigado!' },
+            { who: 'clerk', ja: 'ありがとうございました！', en: 'Thank you very much!', zh: '謝謝光臨！', ko: '감사합니다!', es: '¡Muchas gracias!', pt: 'Muito obrigada!' }] },
+        { image: 'images/web/ep2_scene5.jpg', imageSize: [940, 1672], anchors: { leo: { x: 119, y: 311, s: 1.1 }, mia: { x: 277, y: 357, s: 1.1 } },
+          scene: 'street',
+          cap: { ja: 'おにぎりは①②③の順に引くだけ。海苔がパリパリのまま！', en: "Pull tabs 1, 2, 3 and the rice ball's seaweed stays crisp!", zh: '飯糰照①②③的順序拉開就好，海苔依然酥脆！', ko: '주먹밥은 ①②③ 순서로 당기면 끝. 김이 바삭한 그대로!', es: 'Abre el onigiri tirando de 1, 2 y 3. ¡El alga queda crujiente!', pt: 'Abra o onigiri puxando 1, 2 e 3. A alga fica crocante!' },
+          chars: [{ id: 'leo', at: 'L', pose: 'hold', item: 'onigiri', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'パリパリ！', en: 'So crispy!', zh: '好脆！', ko: '바삭바삭!', es: '¡Crujiente!', pt: 'Crocante!', type: 'shout' },
+            { who: 'mia', ja: 'メロンパンも最高！', en: 'Melon bread rocks too!', zh: '菠蘿麵包也超讚！', ko: '메론빵도 최고야!', es: '¡El melonpan también!', pt: 'O melonpan também!' }] },
+        { image: 'images/web/ep2_scene6.jpg', imageSize: [941, 1672], anchors: { leo: { x: 140, y: 245, s: 1.8 }, mia: { x: 277, y: 289, s: 1.8 } },
+          scene: 'konbini',
+          cap: { ja: 'ATMにコピー機、チケットまで。24時間ほぼ何でもそろう。', en: 'ATMs, printers, even tickets. Open 24/7 with almost everything.', zh: 'ATM、影印機，連票券都買得到。24小時幾乎什麼都有。', ko: 'ATM, 복사기, 티켓까지. 24시간 거의 뭐든 있다.', es: 'Cajeros, impresoras y hasta entradas. Abierta 24 h con casi todo.', pt: 'Caixas eletrônicos, impressoras e até ingressos. Aberta 24 h.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'handsup', face: 'happy' }, { id: 'mia', at: 'R', pose: 'handsup', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'コンビニ最高！', en: 'Konbini rules!', zh: '便利商店最棒！', ko: '편의점 최고!', es: '¡Viva el konbini!', pt: 'Konbini é demais!', type: 'shout' },
+            { who: 'mia', ja: '毎日来ちゃう！', en: "I'll come every day!", zh: '我要天天來！', ko: '매일 올 거야!', es: '¡Vendré a diario!', pt: 'Vou vir todo dia!', type: 'shout' }] }
+      ],
+      tip: {
+        ja: ['多くのコンビニは24時間営業。', 'おにぎりは包装の番号①②③の順に開ける。', 'コンビニのATMは海外のカードが使えることが多い。'],
+        en: ['Most convenience stores are open 24 hours.', 'Open rice balls by pulling tabs 1, 2, 3 in order.', 'Convenience store ATMs often accept foreign cards.'],
+        zh: ['大多數便利商店24小時營業。', '飯糰依包裝上的①②③順序打開。', '便利商店的ATM大多可以使用海外發行的卡。'],
+        ko: ['대부분의 편의점은 24시간 영업.', '주먹밥은 포장의 ①②③ 순서대로 뜯는다.', '편의점 ATM은 해외 카드를 쓸 수 있는 경우가 많다.'],
+        es: ['La mayoría de los konbini abren las 24 horas.', 'Abre el onigiri tirando de las lengüetas 1, 2 y 3.', 'Los cajeros de los konbini suelen aceptar tarjetas extranjeras.'],
+        pt: ['A maioria das lojas de conveniência abre 24 horas.', 'Abra o onigiri puxando as abas 1, 2 e 3.', 'Os caixas das lojas costumam aceitar cartões estrangeiros.']
+      }
+    },
+    {
+      no: 3, pov: 'leo', title: { ja: 'ゴミ箱はどこ？', en: 'Where Are the Trash Cans?' },
+      panels: [
+        { scene: 'street', cap: { ja: '街を歩いて気づいた。ゴミがひとつも落ちていない。', en: 'Walking around, I noticed: not a single piece of litter.' },
+          chars: [{ id: 'leo', at: 'LC', pose: 'point', face: 'surprised' }],
+          lines: [{ who: 'leo', ja: '道がピカピカだ…', en: 'The streets are spotless...' }] },
+        { scene: 'street', cap: { ja: 'コーヒーを飲み終えた。さて、捨てよう。', en: 'Finished my coffee. Time to toss the cup.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'hold', item: 'coffee', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'ゴミ箱は…', en: 'Trash can...', type: 'think' }] },
+        { scene: 'street', cap: { ja: '…ない。どこにもない。', en: '...None. Anywhere.' },
+          chars: [{ id: 'leo', at: 'C', pose: 'shrug', item: 'coffee', face: 'shock' }],
+          fx: [{ type: 'gloom', who: 'leo' }], sfx: [{ ja: 'ガーン', en: 'NOOO', x: 310, y: 110 }] },
+        { scene: 'street', cap: { ja: '通りかかった人も、ゴミを持ち帰っていた。', en: 'A passerby was carrying their trash home, too.' },
+          chars: [{ id: 'oldman', at: 'L', pose: 'hold', item: 'trashbag', face: 'happy' }, { id: 'leo', at: 'RC', face: 'surprised' }],
+          lines: [{ who: 'oldman', ja: '家で分別するんだよ', en: 'I sort it at home.' }, { who: 'leo', ja: '持って帰るの!?', en: 'You take it home?!', type: 'shout' }] },
+        { scene: 'konbini', cap: { ja: 'コンビニや駅には、分別用のゴミ箱がある。', en: 'Convenience stores and stations have sorting bins.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'point', face: 'happy' }], props: [{ item: 'trashbin', x: 262, y: 236, s: 1.5 }],
+          lines: [{ who: 'leo', ja: 'あった！しかも分別！', en: 'Found one! And sorted!' }] },
+        { scene: 'street', cap: { ja: '次の日から、ぼくもゴミ袋を持ち歩くことにした。', en: 'From the next day on, I carried a little trash bag too.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'RC', pose: 'hold', item: 'trashbag', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '日本人っぽい！', en: 'Very Japanese of you!' }, { who: 'leo', ja: 'ポケットが重い', en: 'My pockets are heavy.' }] }
+      ],
+      tip: {
+        ja: ['街なかのゴミ箱は少ない。ゴミは持ち帰るのが基本。', 'コンビニや駅には分別用のゴミ箱があることが多い。', '小さな袋を1枚持ち歩くと安心。'],
+        en: ['Public trash cans are rare. Take your trash with you.', 'Convenience stores and stations usually have sorting bins.', 'Carry a small bag for your trash.']
+      }
+    },
+    {
+      no: 4, pov: 'mia', title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons' },
+      panels: [
+        { scene: 'toilet', cap: { ja: 'ホテルのトイレ。フタが勝手に開いた！', en: 'Hotel restroom. The lid opened by itself!' },
+          chars: [{ id: 'mia', at: 'L', face: 'shock', pose: 'handsup' }],
+          sfx: [{ ja: 'ウィーン', en: 'WHIRR', x: 260, y: 128 }] },
+        { scene: 'toilet', cap: { ja: '便座はあったかい。冬にうれしい。', en: 'The seat is heated. So nice in winter.' },
+          chars: [{ id: 'mia', at: 'L', face: 'calm' }],
+          lines: [{ who: 'mia', ja: 'あったか～い', en: 'So warm~' }], fx: [{ type: 'hearts', who: 'mia' }] },
+        { scene: 'plain', cap: { ja: 'でも、ボタンがたくさん…', en: 'But there are so many buttons...' },
+          chars: [{ id: 'mia', at: 'L', face: 'confused', pose: 'think' }], props: [{ item: 'toiletpanel', x: 280, y: 214, s: 1.4 }],
+          lines: [{ who: 'mia', ja: 'どれを押せば…？', en: 'Which one do I press...?', type: 'think' }] },
+        { scene: 'impact', cap: { ja: 'とりあえず押したら、水が出てきた！', en: 'I pressed one at random, and water shot out!' },
+          chars: [{ id: 'mia', at: 'C', pose: 'handsup', face: 'shock' }],
+          lines: [{ who: 'mia', ja: '止まってー！', en: 'Make it stop!', type: 'shout' }],
+          sfx: [{ ja: 'ピューッ', en: 'SPLASH!', x: 90, y: 250, rot: -12, color: '#3a8fd6' }] },
+        { scene: 'plain', cap: { ja: '「止」がストップ。オレンジ色のことが多い。', en: '「止」means STOP. It is usually orange.' },
+          chars: [{ id: 'mia', at: 'R', pose: 'point', face: 'happy' }], props: [{ item: 'toiletpanel', x: 140, y: 214, s: 1.4, hl: 'stop' }],
+          lines: [{ who: 'mia', ja: 'これだ！', en: 'This one!' }] },
+        { scene: 'room', cap: { ja: '流水音に温水洗浄…もう手放せない。', en: 'Water sounds, warm wash... I can\'t live without it now.' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved', pose: 'handsup' }, { id: 'leo', at: 'R', face: 'confused' }],
+          lines: [{ who: 'mia', ja: '家にもほしい！', en: 'I want one at home!' }, { who: 'leo', ja: '長かったね', en: 'You took a while.' }],
+          fx: [{ type: 'notes', who: 'mia' }] }
+      ],
+      tip: {
+        ja: ['「止」= STOP。迷ったらまずこれを押す。', '「おしり」「ビデ」は洗浄、「音」は流水音のボタン。', 'トイレットペーパーはそのまま流してOK。'],
+        en: ['「止」= STOP. When in doubt, press it first.', '「おしり」and「ビデ」are wash buttons;「音」plays water sounds.', 'Toilet paper goes straight into the toilet.']
+      }
+    },
+    {
+      no: 5, pov: 'leo', title: { ja: 'ラーメンは券売機から', en: 'Ramen Starts at a Machine' },
+      panels: [
+        { scene: 'street', cap: { ja: '行列のできるラーメン店を発見。', en: 'Found a ramen shop with a line outside.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'point', face: 'happy' }, { id: 'salaryman', at: 'RC', facing: 'right' }],
+          lines: [{ who: 'leo', ja: '絶対うまいやつ！', en: 'This has to be good!' }] },
+        { scene: 'ticket', cap: { ja: '入口に機械。ここで食券を買って注文する。', en: 'A machine by the door. You order by buying a meal ticket.' },
+          chars: [{ id: 'leo', at: 'R', face: 'confused', facing: 'left' }],
+          lines: [{ who: 'leo', ja: '自動販売機…？', en: 'A vending machine...?', type: 'think' }] },
+        { scene: 'ticket', cap: { ja: '写真のボタンを押して、お金を入れるだけ。', en: 'Insert money and press the button with the photo.' },
+          chars: [{ id: 'leo', at: 'RC', pose: 'point', face: 'determined', facing: 'left' }],
+          sfx: [{ ja: 'ピッ', en: 'BEEP', x: 220, y: 96 }] },
+        { scene: 'ramen', cap: { ja: '食券を渡すと、あっという間にラーメン登場。', en: 'Hand over the ticket, and the ramen arrives fast.' },
+          chars: [{ id: 'leo', at: 'L', face: 'moved' }, { id: 'chef', at: 'R', face: 'happy', dy: -44 }],
+          props: [{ item: 'ramen', x: 118, y: 232, s: 1.2 }], fx: [{ type: 'steam', x: 118, y: 200 }],
+          lines: [{ who: 'chef', ja: 'へいお待ち！', en: 'Here you go!', type: 'shout' }] },
+        { scene: 'ramen', cap: { ja: '周りの人は、音を立てて麺をすすっている。', en: 'Everyone around is slurping their noodles loudly.' },
+          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'salaryman', at: 'RC', face: 'calm' }],
+          props: [{ item: 'ramen', x: 260, y: 232, s: 1.1 }],
+          lines: [{ who: 'leo', ja: '音を出していいの？', en: 'Slurping is OK?', type: 'think' }],
+          sfx: [{ ja: 'ズルズル', en: 'SLURRP', x: 330, y: 150, rot: 8 }] },
+        { scene: 'ramen', cap: { ja: 'すすって食べるのはOK。そしてチップは不要！', en: 'Slurping is fine. And there is no tipping!' },
+          chars: [{ id: 'leo', at: 'L', pose: 'handsup', face: 'happy' }, { id: 'chef', at: 'R', pose: 'bow', face: 'happy', dy: -44 }],
+          lines: [{ who: 'leo', ja: 'チップなし…最高！', en: 'No tip... amazing!' }, { who: 'chef', ja: 'ありがとうございました！', en: 'Thank you very much!' }] }
+      ],
+      tip: {
+        ja: ['入口の券売機で食券を買い、席で渡す店が多い。', '麺をすすって食べるのはマナー違反ではない。', '日本にはチップの習慣がない。'],
+        en: ['Many shops have you buy a ticket at the door and hand it over at your seat.', 'Slurping noodles is not rude in Japan.', 'There is no tipping culture in Japan.']
+      }
+    },
+    {
+      no: 6, pov: 'mia', title: { ja: '温泉デビュー', en: 'My First Onsen' },
+      panels: [
+        { scene: 'ryokan', cap: { ja: '旅館で温泉へ。でも水着は禁止！', en: 'Off to the hot spring at our inn. But no swimsuits!' },
+          chars: [{ id: 'okami', at: 'L', pose: 'bow', face: 'calm' }, { id: 'mia', at: 'R', face: 'shock' }],
+          lines: [{ who: 'okami', ja: '水着はご遠慮ください', en: 'No swimsuits, please.' }, { who: 'mia', ja: 'えっ、裸で!?', en: 'Wait, naked?!', type: 'shout' }] },
+        { scene: 'washarea', cap: { ja: 'まず洗い場で、体をしっかり洗う。', en: 'First, wash your body well at the washing area.' },
+          chars: [{ id: 'mia', at: 'LC', outfit: 'towel', face: 'happy' }], fx: [{ type: 'steam', x: 300, y: 170 }],
+          lines: [{ who: 'mia', ja: '湯船の前にきれいに！', en: 'Get clean before the bath!' }] },
+        { scene: 'onsen', cap: { ja: 'タオルは湯船に入れない。頭にのせるのが定番。', en: 'Keep the towel out of the water. Put it on your head.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'bath', face: 'surprised' }, { id: 'woman', at: 'R', pose: 'bath', face: 'happy', hat: 'towel' }],
+          lines: [{ who: 'woman', ja: 'こうするのよ', en: 'Like this.' }] },
+        { scene: 'onsen', cap: { ja: 'お湯は40度くらい。肩までつかると…', en: 'The water is about 40°C. Sink in up to your shoulders...' },
+          chars: [{ id: 'mia', at: 'C', pose: 'bath', face: 'calm', hat: 'towel' }], fx: [{ type: 'steam', x: 200, y: 160 }],
+          sfx: [{ ja: 'ふぅ～', en: 'Ahhh~', x: 310, y: 120 }] },
+        { scene: 'onsen', cap: { ja: '知らない人とも、なぜか話がはずむ。', en: 'Somehow you end up chatting with strangers.' },
+          chars: [{ id: 'woman', at: 'L', pose: 'bath', face: 'happy', hat: 'towel' }, { id: 'mia', at: 'R', pose: 'bath', face: 'happy', hat: 'towel' }],
+          lines: [{ who: 'woman', ja: 'どこから来たの？', en: 'Where are you from?' }, { who: 'mia', ja: 'カナダです！', en: 'Canada!' }] },
+        { scene: 'ryokan', cap: { ja: 'お風呂上がりは浴衣でのんびり。肌もツルツル。', en: 'After the bath, relax in a yukata. Silky smooth skin.' },
+          chars: [{ id: 'leo', at: 'L', outfit: 'yukata', face: 'happy' }, { id: 'mia', at: 'R', outfit: 'yukata2', face: 'moved' }],
+          lines: [{ who: 'leo', ja: '顔が真っ赤だよ', en: 'Your face is so red.' }, { who: 'mia', ja: '最高だった…', en: 'That was perfect...' }] }
+      ],
+      tip: {
+        ja: ['湯船に入る前に、洗い場で体を洗う。', '水着は着ない。タオルはお湯に入れない。', 'タトゥーがあると入れない施設もあるので事前に確認。'],
+        en: ['Wash your body before getting into the bath.', 'No swimsuits, and keep your towel out of the water.', 'Some places refuse tattoos, so check in advance.']
+      }
+    },
+    {
+      no: 7, pov: 'leo', title: { ja: 'お釣りのトレーとお辞儀', en: 'The Coin Tray and the Bow' },
+      panels: [
+        { scene: 'konbini', cap: { ja: 'お店に入ると「いらっしゃいませ！」の声。', en: 'Walk into a shop and you hear "Irasshaimase!"' },
+          chars: [{ id: 'clerk', at: 'L', pose: 'bow', face: 'happy' }, { id: 'leo', at: 'R', pose: 'wave', face: 'surprised' }],
+          lines: [{ who: 'clerk', ja: 'いらっしゃいませ！', en: 'Welcome!', type: 'shout' }, { who: 'leo', ja: 'こ、こんにちは！', en: 'H-hello!' }] },
+        { scene: 'konbini', cap: { ja: '意味は「ようこそ」。返事はしなくても大丈夫。', en: "It means \"welcome.\" You don't need to reply." },
+          chars: [{ id: 'leo', at: 'L', face: 'embarrassed' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '軽く会釈で十分だよ', en: 'A small nod is enough.' }] },
+        { scene: 'register', cap: { ja: '会計で、お金を手渡そうとしたら…', en: 'At the register, I tried to hand over the cash...' },
+          chars: [{ id: 'clerk', at: 'L', behind: true, face: 'happy' }, { id: 'leo', at: 'R', pose: 'point', item: 'yen', face: 'normal' }],
+          props: [{ item: 'tray', x: 236, y: 228 }],
+          lines: [{ who: 'clerk', ja: 'こちらにどうぞ', en: 'On the tray, please.' }] },
+        { scene: 'plain', cap: { ja: 'お金はトレーに置く。お釣りもトレーで返ってくる。', en: 'Put your money on the tray. Your change comes back on it too.' },
+          props: [{ item: 'tray', x: 200, y: 200, s: 2.6 }], fx: [{ type: 'sparkle', x: 200, y: 170 }] },
+        { scene: 'register', cap: { ja: '品物は両手で、ていねいなお辞儀つき。', en: 'Items are handed over with both hands and a polite bow.' },
+          chars: [{ id: 'clerk', at: 'L', behind: true, pose: 'bow', face: 'calm' }, { id: 'leo', at: 'R', face: 'moved' }],
+          lines: [{ who: 'clerk', ja: 'ありがとうございました', en: 'Thank you very much.' }] },
+        { scene: 'street', cap: { ja: '気づけば、お辞儀がクセになっていた。', en: 'Before I knew it, bowing had become a habit.' },
+          chars: [{ id: 'leo', at: 'RC', pose: 'bow', face: 'calm', facing: 'right' }, { id: 'mia', at: 'L', face: 'confused' }],
+          lines: [{ who: 'mia', ja: 'それ、自販機だよ', en: "That's a vending machine." }] }
+      ],
+      tip: {
+        ja: ['「いらっしゃいませ」に返事は不要。軽い会釈でOK。', 'お金はレジのトレーに置く。', 'お辞儀はあいさつと感謝の基本。'],
+        en: ['No need to answer "Irasshaimase." A nod is fine.', 'Place your money on the tray at the register.', 'Bowing is the basic way to greet and say thanks.']
+      }
+    },
+    {
+      no: 8, pov: 'mia', title: { ja: '財布が戻ってきた', en: 'My Wallet Came Back' },
+      panels: [
+        { scene: 'room', cap: { ja: 'ホテルに戻って気づいた。財布がない！', en: "Back at the hotel, I realized my wallet was gone!" },
+          chars: [{ id: 'mia', at: 'C', pose: 'handsup', face: 'shock' }], fx: [{ type: 'gloom', who: 'mia' }],
+          lines: [{ who: 'mia', ja: 'ない！', en: "It's gone!", type: 'shout' }] },
+        { scene: 'room', cap: { ja: '現金もカードも、全部入っていたのに…', en: 'All my cash and cards were in it...' },
+          chars: [{ id: 'mia', at: 'L', face: 'sad' }, { id: 'leo', at: 'R', pose: 'think', face: 'determined' }],
+          lines: [{ who: 'leo', ja: '交番に行ってみよう', en: "Let's go to the koban." }] },
+        { scene: 'koban', cap: { ja: '交番は街の小さな警察。道案内もしてくれる。', en: 'A koban is a small police box. They give directions, too.' },
+          chars: [{ id: 'mia', at: 'L', face: 'sad' }, { id: 'police', at: 'R', face: 'normal' }],
+          lines: [{ who: 'police', ja: 'どうしましたか？', en: 'How can I help?' }] },
+        { scene: 'koban', cap: { ja: 'なんと、もう届けられていた！', en: 'Amazingly, someone had already turned it in!' },
+          chars: [{ id: 'mia', at: 'L', face: 'surprised' }, { id: 'police', at: 'R', pose: 'hold', item: 'wallet', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '私の財布！', en: 'My wallet!', type: 'shout' }] },
+        { scene: 'plain', cap: { ja: '中身もそのまま。拾った人は名乗らずに帰ったそう。', en: "Nothing missing. The finder left without giving a name." },
+          chars: [{ id: 'mia', at: 'C', zoom: true, pose: 'hold', item: 'wallet', face: 'moved' }], fx: [{ type: 'sparkle', who: 'mia' }],
+          lines: [{ who: 'mia', ja: '全部ある…！', en: "It's all here...!" }] },
+        { scene: 'street', cap: { ja: '日本では、落とし物が持ち主に戻ることが多い。', en: 'In Japan, lost items often find their way back.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy', pose: 'hold', item: 'wallet' }, { id: 'leo', at: 'RC', face: 'calm' }],
+          lines: [{ who: 'mia', ja: 'みんな優しすぎる', en: 'People here are so kind.' }, { who: 'leo', ja: 'もう落とさないでね', en: "Don't drop it again." }] }
+      ],
+      tip: {
+        ja: ['落とし物は交番や駅の窓口に届けられることが多い。', '交番は道案内もしてくれる。', '緊急時は110番（警察）、119番（救急・消防）。'],
+        en: ['Lost items are often turned in to a koban or station office.', 'Koban officers also give directions.', 'Emergency: 110 for police, 119 for ambulance or fire.']
+      }
+    },
+    {
+      no: 9, pov: 'leo', title: { ja: '神社のお参り', en: 'Visiting a Shrine' },
+      panels: [
+        { scene: 'shrine', cap: { ja: '赤い鳥居の神社へ。鳥居は神様の場所への入口。', en: 'A shrine with a red torii, the gateway to a sacred place.' },
+          chars: [{ id: 'leo', at: 'L', face: 'moved' }, { id: 'mia', at: 'R', pose: 'point', face: 'happy', facing: 'left' }],
+          lines: [{ who: 'leo', ja: 'かっこいい…', en: 'So cool...' }] },
+        { scene: 'shrine', cap: { ja: '鳥居の前で一礼。参道の真ん中は神様の通り道。', en: 'Bow once at the gate. The center path is for the gods.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'bow', face: 'calm' }, { id: 'mia', at: 'R', pose: 'bow', face: 'calm' }] },
+        { scene: 'chozuya', cap: { ja: '手水舎で、手と口を清める。', en: 'Purify your hands and mouth at the water basin.' },
+          chars: [{ id: 'leo', at: 'C', pose: 'hold', item: 'ladle', face: 'determined' }],
+          lines: [{ who: 'leo', ja: '左手、右手、口…', en: 'Left hand, right hand, mouth...', type: 'think' }] },
+        { scene: 'shrine_hall', cap: { ja: 'お賽銭を入れて、鈴を鳴らす。', en: 'Drop in a coin and ring the bell.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'hold', item: 'coin', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '5円は「ご縁」！', en: '5 yen sounds like "good ties"!' }],
+          sfx: [{ ja: 'ガラガラ', en: 'CLANG', x: 200, y: 92, rot: 0 }] },
+        { scene: 'shrine_hall', cap: { ja: '二礼・二拍手・一礼。手を合わせて願いごと。', en: 'Bow twice, clap twice, bow once. Then make a wish.' },
+          chars: [{ id: 'leo', at: 'C', pose: 'pray', face: 'calm' }],
+          sfx: [{ ja: 'パン！パン！', en: 'CLAP! CLAP!', x: 310, y: 110 }] },
+        { scene: 'shrine', cap: { ja: '願いごとは、ひみつ…のはずが。', en: 'My wish is a secret... or so I thought.' },
+          chars: [{ id: 'mia', at: 'L', face: 'confused' }, { id: 'leo', at: 'R', face: 'embarrassed' }],
+          lines: [{ who: 'mia', ja: '何をお願いしたの？', en: 'What did you wish for?' }, { who: 'leo', ja: '…また来られますように', en: '...To come back again.' }] }
+      ],
+      tip: {
+        ja: ['鳥居の前で一礼。参道の真ん中は避けて歩く。', '手水舎：左手→右手→口→柄の順に清める。', '神社の基本は「二礼二拍手一礼」（お寺では手を打たない）。'],
+        en: ['Bow at the torii and walk to the side of the path.', 'At the basin: left hand, right hand, mouth, then the handle.', 'At shrines: bow twice, clap twice, bow once. No clapping at temples.']
+      }
+    },
+    {
+      no: 10, pov: 'both', title: { ja: '帰国して気づいたこと', en: 'What We Noticed Back Home' },
+      panels: [
+        { scene: 'airport', cap: { ja: '楽しい旅もおしまい。カナダへ帰国。', en: 'The trip is over. Time to fly home to Canada.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'wave', face: 'sad' }, { id: 'leo', at: 'R', pose: 'hold', item: 'suitcase', face: 'sad' }],
+          lines: [{ who: 'mia', ja: '帰りたくない…', en: "I don't want to leave..." }] },
+        { scene: 'home_store', cap: { ja: '（ミア）地元のお店で、ついトレーを探してしまう。', en: '(Mia) At a local shop, I looked for the coin tray.' },
+          chars: [{ id: 'cashier', at: 'L', behind: true, face: 'confused' }, { id: 'mia', at: 'R', pose: 'point', item: 'yen', face: 'confused' }],
+          lines: [{ who: 'cashier', ja: '手で渡してね？', en: 'Just hand it to me?' }, { who: 'mia', ja: 'トレーは…？', en: "Where's the tray...?", type: 'think' }] },
+        { scene: 'home_street', cap: { ja: '（レオ）ゴミ箱があるのに、ゴミ袋を出す自分。', en: '(Leo) There was a bin, but I pulled out my trash bag.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'hold', item: 'trashbag', face: 'embarrassed' }],
+          lines: [{ who: 'leo', ja: '持ち帰らなきゃ…', en: 'Gotta take it home...', type: 'think' }] },
+        { scene: 'train', cap: { ja: '電車では、つい声をひそめてしまう。', en: 'On the train, we kept our voices down without thinking.' },
+          chars: [{ id: 'mia', at: 'L', face: 'normal' }, { id: 'leo', at: 'LC', face: 'normal' }, { id: 'local', at: 'R', pose: 'wave', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'しーっ', en: 'Shh!', type: 'whisper' }, { who: 'local', ja: 'やあ！元気〜!?', en: "HEY! WHAT'S UP!?", type: 'shout' }] },
+        { scene: 'home_room', cap: { ja: '日本で覚えたのは、周りを思いやる小さな習慣。', en: 'What we learned in Japan: small habits of caring for others.' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved' }, { id: 'leo', at: 'R', face: 'moved' }], fx: [{ type: 'sparkle', x: 200, y: 180 }],
+          lines: [{ who: 'mia', ja: '少し優しくなれたかも', en: 'Maybe we got a little kinder.' }] },
+        { scene: 'home_room', cap: { ja: 'さあ、次はあなたの番です。', en: "Now it's your turn." },
+          chars: [{ id: 'mia', at: 'L', pose: 'wave', face: 'happy' }, { id: 'leo', at: 'R', pose: 'bow', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'いってらっしゃい！', en: 'Have a great trip!' }, { who: 'leo', ja: '日本で会おう！', en: 'See you in Japan!' }] }
+      ],
+      tip: {
+        ja: ['静かに・並ぶ・持ち帰る。日本のマナーの根っこは「周りへの思いやり」。', '分からないときは、周りの人のまねをすれば大丈夫。', '困ったら聞いてみよう。多くの人が親切に教えてくれる。'],
+        en: ['Keep quiet, line up, take your trash: it all comes from caring for others.', "When unsure, just do what people around you do.", 'If you need help, ask. Most people are happy to help.']
+      }
+    }
+  ]
+};

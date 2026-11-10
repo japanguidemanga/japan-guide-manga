@@ -1,0 +1,340 @@
+<title>はじめてニッポン</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+TC:wght@500;700;900&family=Noto+Sans+KR:wght@500;700;900&display=swap">
+<style>
+/* Layout: スマホ縦(9:16)向けの1カラム。コマを上から順に縦スクロールで読み、字幕は各コマの下に大きく表示。
+   言語は訪日客向けの5言語（EN / 繁體中文 / 한국어 / Español / Português）を上部バーで切り替える。 */
+:root {
+  --desk: #eef1f5; --card: #ffffff; --ink: #1f2228; --muted: #5b6372; --line: #d3d9e2;
+  --indigo: #2c4a7c; --mia: #d4506c; --leo: #1e877e; --both: #6a5cc4; --tip: #f3f6fb; --frame: #1f2228; --bar: rgba(238,241,245,.94);
+  --display: 'Dela Gothic One', 'Hiragino Kaku Gothic StdN', 'Yu Gothic', sans-serif;
+  --body: 'Zen Maru Gothic', 'Noto Sans TC', 'Noto Sans KR', 'Hiragino Maru Gothic ProN', 'Yu Gothic UI', 'Meiryo', sans-serif;
+  --col: 520px;      /* 読む幅の上限。スマホでは画面いっぱい */
+  --cap: 19px;       /* 字幕の文字サイズ */
+  --bar-h: 112px;    /* 上部バーの高さ（スクロール位置の調整用） */
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --desk: #15181d; --card: #1d2128; --ink: #eceef2; --muted: #a5adba; --line: #2e343e;
+  --indigo: #93b2ea; --mia: #ff8ea3; --leo: #5ccabf; --both: #b0a6ff; --tip: #1b222d; --frame: #000; --bar: rgba(21,24,29,.94); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --desk: #15181d; --card: #1d2128; --ink: #eceef2; --muted: #a5adba; --line: #2e343e;
+  --indigo: #93b2ea; --mia: #ff8ea3; --leo: #5ccabf; --both: #b0a6ff; --tip: #1b222d; --frame: #000; --bar: rgba(21,24,29,.94); color-scheme: dark }
+html { scroll-snap-type: y proximity; }
+html[lang="ko"] body { word-break: keep-all; overflow-wrap: anywhere; }  /* 韓国語は単語の途中で改行しない */
+body { margin: 0; background: var(--desk); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.7; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--desk); }
+.col { max-width: var(--col); margin: 0 auto; box-sizing: border-box;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, summary:focus-visible, textarea:focus-visible { outline: 3px solid var(--indigo); outline-offset: 2px; }
+
+/* 表紙 */
+.mast { padding-block: 22px 14px; display: grid; gap: 12px; }
+.mast h1 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 10vw, 48px); line-height: 1.1; margin: 0; }
+.mast h1 .dot { color: #d6442f; }
+.mast .sub { margin: -4px 0 0; font-weight: 900; font-size: 18px; letter-spacing: .02em; }
+.mast p { margin: 0; color: var(--muted); font-size: 15px; }
+.cast { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 2px; }
+.who { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px; min-width: 0; display: grid; grid-template-columns: 52px minmax(0,1fr); gap: 4px 10px; align-items: center; }
+.who svg { width: 52px; height: 52px; background: #fff; border-radius: 50%; border: 3px solid var(--c); box-sizing: border-box; }
+.who b { font-size: 17px; display: block; line-height: 1.3; }
+.who .role { font-size: 12px; font-weight: 700; color: var(--c); line-height: 1.3; }
+.who p { grid-column: 1 / -1; margin: 2px 0 0; font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* 上に固定されるバー：1段目=言語、2段目=話 */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bar); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.bar .col { display: grid; gap: 8px; padding-block: 8px; }
+.langs, .eps { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; min-width: 0; scroll-behavior: smooth; }
+.langs::-webkit-scrollbar, .eps::-webkit-scrollbar { display: none; }
+.langs button { flex: none; height: 40px; padding: 0 14px; border-radius: 999px; border: 2px solid var(--ink); background: var(--card); font-weight: 700; font-size: 15px; white-space: nowrap; }
+.langs button[aria-pressed="true"] { background: var(--ink); color: var(--desk); }
+.eps button { flex: none; width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--c); background: var(--card); font-weight: 900; font-size: 15px; }
+.eps button[aria-current="true"] { background: var(--c); color: #fff; }
+
+/* 本編 */
+main { display: grid; gap: 26px; padding-block: 20px 28px; }
+.ep-head { display: grid; gap: 6px; scroll-margin-top: calc(var(--bar-h) + 8px); }
+.ep-head .no { font-family: var(--display); font-size: 16px; color: var(--muted); }
+.ep-head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 8vw, 36px); margin: 0; line-height: 1.2; text-wrap: balance; }
+html:not([lang="ja"]) .ep-head h2 { font-family: var(--body); font-weight: 900; }
+.pov { justify-self: start; font-weight: 700; font-size: 14px; color: var(--c); border: 2px solid var(--c); border-radius: 999px; padding: 1px 12px; }
+.hint { font-size: 14px; color: var(--muted); margin: 0; }
+.notice { margin: 0; font-size: 14px; font-weight: 700; color: var(--indigo); background: var(--tip); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
+
+.koma { margin: 0; display: grid; scroll-snap-align: start; scroll-margin-top: calc(var(--bar-h) + 4px); }
+.koma .art { border: 3px solid var(--frame); background: #fff; line-height: 0; }
+.koma .art svg { width: 100%; height: auto; display: block; }
+.koma figcaption { display: flex; gap: 12px; align-items: flex-start; background: var(--card); border: 3px solid var(--frame); border-top: 0;
+  border-left: 8px solid var(--c); padding: 12px 14px; font-size: var(--cap); font-weight: 700; line-height: 1.6; }
+.koma .n { flex: none; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: var(--c); color: #fff; font: 900 15px/30px var(--body); text-align: center; }
+html[lang="en"] .koma figcaption, html[lang="es"] .koma figcaption, html[lang="pt"] .koma figcaption { font-size: calc(var(--cap) - 1px); line-height: 1.5; }
+
+/* 全画面コマ（画像）：画面の横幅いっぱい・9:16。左右の余白（.col の内側余白）を打ち消して端まで広げる */
+.koma.full { margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px))); }
+/* 高さは横幅だけで決まる（9:16）。画面の高さや他の要素（ボタン・Tips）には左右されない */
+.koma.full .art { position: relative; width: 100%; height: auto; min-height: 0; flex: none; aspect-ratio: 9 / 16; border: 0; overflow: hidden; background: #000; }
+.koma.full .art svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+@supports not (aspect-ratio: 9 / 16) { .koma.full .art::before { content: ""; display: block; padding-top: 177.78%; } }
+/* 字幕は画像の下部に重ねる。グラデーションは薄めにしてイラストを透かし、読みやすさは文字の影で補う */
+.koma.full figcaption { position: absolute; left: 0; right: 0; bottom: 0; border: 0; color: #fff; line-height: 1.5;
+  padding: 64px max(18px, env(safe-area-inset-right, 0px)) 20px max(18px, env(safe-area-inset-left, 0px));
+  background: linear-gradient(to top, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .38) 45%, rgba(0, 0, 0, .12) 75%, transparent 100%);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, .85), 0 0 10px rgba(0, 0, 0, .55); font-size: calc(var(--cap) + 1px); }
+html[lang="en"] .koma.full figcaption, html[lang="es"] .koma.full figcaption, html[lang="pt"] .koma.full figcaption { font-size: var(--cap); }
+.koma.full .n { box-shadow: 0 0 0 2px rgba(255, 255, 255, .85); text-shadow: none; }
+/* 画面が広い（PC・タブレット）ときは、本文の列（最大520px）の幅いっぱいに縦長で表示。
+   ボタン・Tips・前後の話ボタンも同じ列に並ぶので、下へスクロールするとそのまま続く */
+@media (min-width: 600px) {
+  .koma.full { margin-left: 0; margin-right: 0; }
+  .koma.full .art { border-radius: 8px; }
+}
+
+/* アフィリエイト用のボタン（話の最後のコマのすぐ下）。色は cta.color：green / blue */
+.cta { display: grid; gap: 6px; margin: 4px 0 2px; }
+.cta a { --c1: #19c37d; --c2: #0e9f63; --edge: #0a7a4b; --glow: rgba(25, 195, 125, .35);
+  display: flex; align-items: center; gap: 12px; min-height: 60px; padding: 12px 18px; border-radius: 16px;
+  color: #fff; text-decoration: none; font: 800 18px/1.25 'Zen Maru Gothic', system-ui, sans-serif; letter-spacing: .01em;
+  background: linear-gradient(180deg, var(--c1), var(--c2)); border: 1px solid rgba(255, 255, 255, .25);
+  box-shadow: 0 4px 0 var(--edge), 0 10px 22px var(--glow), inset 0 1px 0 rgba(255, 255, 255, .35);
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease; -webkit-tap-highlight-color: transparent; }
+.cta a.blue { --c1: #3d8bff; --c2: #1f62e0; --edge: #1546a8; --glow: rgba(61, 139, 255, .35); }
+.cta a:hover { transform: translateY(-2px); filter: brightness(1.06);
+  box-shadow: 0 6px 0 var(--edge), 0 14px 28px var(--glow), inset 0 1px 0 rgba(255, 255, 255, .35); }
+.cta a:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--edge), 0 4px 10px var(--glow), inset 0 1px 0 rgba(255, 255, 255, .25); }
+.cta a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.cta .ico { flex: none; width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: rgba(255, 255, 255, .2); }
+.cta .ico svg { width: 24px; height: 24px; }
+.cta .lbl { flex: 1; }
+.cta .arr { flex: none; font-size: 22px; transition: transform .15s ease; }
+.cta a:hover .arr { transform: translateX(3px); }
+.cta small { text-align: center; font-size: 12px; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .cta a, .cta .arr { transition: none; } }
+
+.tip { background: var(--tip); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px; scroll-snap-align: start; scroll-margin-top: calc(var(--bar-h) + 4px); }
+.tip h3 { margin: 0 0 10px; font-size: 19px; display: flex; gap: 8px; align-items: center; }
+.tip h3::before { content: ""; width: 14px; height: 14px; background: #d6442f; border-radius: 50%; }
+.tip ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; font-size: 17px; line-height: 1.6; }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pager button { background: var(--card); border: 2px solid var(--ink); border-radius: 14px; padding: 14px 10px; font-weight: 700; font-size: 16px; line-height: 1.35; }
+.pager button small { display: block; font-size: 12px; color: var(--muted); }
+.pager button:disabled { opacity: .35; cursor: default; }
+
+/* 脚本ラボ（制作者向け・日本語表示） */
+details.lab { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; margin-bottom: 40px; }
+details.lab summary { font-weight: 700; cursor: pointer; }
+.lab-grid { display: grid; gap: 14px; margin-top: 12px; }
+.lab p { margin: 0; color: var(--muted); font-size: 14px; }
+.lab textarea { width: 100%; box-sizing: border-box; min-height: 260px; font: 12.5px/1.5 ui-monospace, Consolas, monospace; background: var(--desk); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 10px; }
+.lab .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.lab .row button { border: 2px solid var(--ink); background: transparent; border-radius: 999px; padding: 4px 14px; font-weight: 700; }
+.status { font-size: 13px; font-weight: 700; }
+.status.ok { color: var(--leo); } .status.ng { color: #d6442f; }
+.warns { margin: 0; padding-left: 1.2em; font-size: 13px; color: #d6442f; }
+#lab-out { display: grid; gap: 18px; }
+.catalog { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 12px; font-size: 12.5px; }
+.catalog dt { font-weight: 700; } .catalog dd { margin: 0; color: var(--muted); font-family: ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+
+@media (prefers-reduced-motion: reduce) { .eps, .langs { scroll-behavior: auto; } }
+</style>
+
+<header class="mast col">
+  <h1>はじめて<span class="dot">ニッポン</span></h1>
+  <p class="sub" id="series-title"></p>
+  <p id="tagline"></p>
+  <section class="cast" id="cast" aria-label="Characters"></section>
+</header>
+
+<div class="bar" id="bar">
+  <div class="col">
+    <div class="langs" id="langs" role="group" aria-label="Language"></div>
+    <nav class="eps" id="eps" aria-label="Episodes"></nav>
+  </div>
+</div>
+
+<main class="col" id="episode"></main>
+
+<div class="col">
+  <details class="lab" id="lab">
+    <summary>脚本ラボ（制作者用・自動化）</summary>
+    <div class="lab-grid">
+      <p>1話分の脚本はこのJSONだけです。書き換えて「プレビュー」を押すと、絵・吹き出しの配置・字幕まで自動で組み直します。プレビューは上で選んでいる言語で表示されます。</p>
+      <div class="row"><span class="status" id="check-all"></span></div>
+      <textarea id="lab-json" spellcheck="false" aria-label="Episode JSON"></textarea>
+      <div class="row">
+        <button id="lab-run">プレビュー</button>
+        <button id="lab-reset">元に戻す</button>
+        <span class="status" id="lab-status"></span>
+      </div>
+      <ul class="warns" id="lab-warns"></ul>
+      <div id="lab-out"></div>
+      <dl class="catalog" id="catalog"></dl>
+    </div>
+  </details>
+</div>
+
+<script src="engine.js"></script>
+<script src="episodes.js"></script>
+<script>
+(() => {
+  const M = window.MANGA, E = window.MangaEngine;
+  // 吹き出しの文字サイズ [CJK(中・韓・日), 欧文]（SVG内の単位。スマホ幅で読みやすい大きさ）
+  const BUBBLE_FS = [18, 16];
+  const BUBBLE_FS_FULL = [20, 18];  // 全画面（9:16）コマ用
+
+  // ヘッダーに並べる言語（左から順）。code は脚本データのキー、html は <html lang>
+  const LANGS = [
+    { code: 'en', label: 'EN', html: 'en' },
+    { code: 'zh', label: '繁體中文', html: 'zh-Hant' },
+    { code: 'ko', label: '한국어', html: 'ko' },
+    { code: 'es', label: 'Español', html: 'es' },
+    { code: 'pt', label: 'Português', html: 'pt' }
+  ];
+
+  // 画面の文言（ボタン・見出しなど）
+  const UI = {
+    en: { ep: n => `Episode ${n}`, pov: { mia: "Mia's view ♀", leo: "Leo's view ♂", both: 'Both views' },
+      hint: 'Scroll down to read the panels in order.', tip: 'Japan Tips', prev: 'Previous', next: 'Next', notice: '' },
+    zh: { ep: n => `第${n}話`, pov: { mia: '米亞的視角 ♀', leo: '里歐的視角 ♂', both: '兩人的視角' },
+      hint: '請往下捲動，依序閱讀。', tip: '日本小知識', prev: '上一話', next: '下一話', notice: '本話目前僅提供英文版。' },
+    ko: { ep: n => `제${n}화`, pov: { mia: '미아의 시선 ♀', leo: '레오의 시선 ♂', both: '두 사람의 시선' },
+      hint: '아래로 스크롤하며 순서대로 읽어 주세요.', tip: '일본 미니 상식', prev: '이전 화', next: '다음 화', notice: '이 화는 아직 영어로만 볼 수 있습니다.' },
+    es: { ep: n => `Episodio ${n}`, pov: { mia: 'Mirada de Mia ♀', leo: 'Mirada de Leo ♂', both: 'Ambas miradas' },
+      hint: 'Desliza hacia abajo para leer las viñetas en orden.', tip: 'Consejos sobre Japón', prev: 'Anterior', next: 'Siguiente', notice: 'Este episodio aún solo está en inglés.' },
+    pt: { ep: n => `Episódio ${n}`, pov: { mia: 'Olhar de Mia ♀', leo: 'Olhar de Leo ♂', both: 'Olhar dos dois' },
+      hint: 'Role para baixo para ler os quadrinhos em ordem.', tip: 'Dicas sobre o Japão', prev: 'Anterior', next: 'Próximo', notice: 'Este episódio ainda está só em inglês.' }
+  };
+  const LAB_CAT = { scenes: '背景', poses: 'ポーズ', faces: '表情', props: '小道具', fx: '効果', outfits: '衣装', slots: '立ち位置', bubbles: '吹き出し' };
+
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  const saved = store.get('manga-lang');
+  let lang = LANGS.some(l => l.code === saved) ? saved : 'en';
+  let cur = 0;
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // 選んだ言語の文字。訳がまだない場合は英語で表示
+  const pick = o => (o == null ? '' : typeof o === 'string' ? o : (o[lang] ?? o.en ?? o.ja ?? ''));
+  const pickList = o => (o && (o[lang] || o.en || o.ja)) || [];
+  const accent = pov => (M.cast[pov] && M.cast[pov].accent) || '#6a5cc4';
+  const povVar = pov => pov === 'mia' ? 'var(--mia)' : pov === 'leo' ? 'var(--leo)' : 'var(--both)';
+
+  // 1コマ = 絵（SVG・吹き出し入り）＋その下に大きな字幕
+  // 画像のコマ：9:16 の全画面（左右の余白なし）。吹き出しは画像の上、字幕は画像の下部に重ねる
+  // 図形の絵のコマ：これまでどおり、絵の下に字幕
+  const FULL = [9, 16];
+  const RESERVE_BOTTOM = 190;  // 下に重ねる字幕のぶん、吹き出しを置かない高さ（SVG単位・幅400基準）
+  function panelsHTML(ep) {
+    const warn = [];
+    const html = ep.panels.map((p, i) => {
+      const cap = `<figcaption><span class="n" aria-label="${i + 1}">${i + 1}</span><span>${esc(pick(p.cap))}</span></figcaption>`;
+      if (p.image) {
+        const svg = E.renderPanel(p, { lang, cast: M.cast, warn, caption: false, bubbleFs: BUBBLE_FS_FULL, fill: FULL, reserveBottom: RESERVE_BOTTOM });
+        return `<figure class="koma full" style="--c:${povVar(ep.pov)}"><div class="art">${svg}${cap}</div></figure>`;
+      }
+      const svg = E.renderPanel(p, { lang, cast: M.cast, accent: accent(ep.pov), warn, caption: false, bubbleFs: BUBBLE_FS });
+      return `<figure class="koma" style="--c:${povVar(ep.pov)}"><div class="art">${svg}</div>${cap}</figure>`;
+    }).join('');
+    return { html, warn };
+  }
+
+  // アフィリエイト用ボタン。脚本データの ep.cta = { label, href, color: 'green'|'blue', icon: 'wifi'|'train' }
+  const CTA_ICONS = {
+    wifi: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.8 16a5 5 0 0 1 6.4 0"/><circle cx="12" cy="19.3" r="1.3" fill="currentColor" stroke="none"/></svg>',
+    train: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15.5V9c0-3.5 3-5.5 8-5.5S20 5.5 20 9v6.5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3Z"/><path d="M4 11.5h16M8 22l2-3.5M16 22l-2-3.5"/><circle cx="8.5" cy="15" r=".9" fill="currentColor"/><circle cx="15.5" cy="15" r=".9" fill="currentColor"/></svg>'
+  };
+  function ctaHTML(c) {
+    if (!c) return '';
+    return `<div class="cta"><a class="${c.color === 'blue' ? 'blue' : ''}" href="${esc(c.href || '#')}" target="_blank" rel="sponsored noopener">
+      <span class="ico" aria-hidden="true">${CTA_ICONS[c.icon] || ''}</span><span class="lbl">${esc(c.label)}</span><span class="arr" aria-hidden="true">›</span></a>
+      <small>Partner link</small></div>`;
+  }
+
+  function renderLangs() {
+    $('langs').innerHTML = LANGS.map(l =>
+      `<button data-lang="${l.code}" lang="${l.html}" aria-pressed="${l.code === lang}">${l.label}</button>`).join('');
+  }
+  function renderCast() {
+    $('cast').innerHTML = ['mia', 'leo'].map(id => {
+      const c = M.cast[id];
+      return `<div class="who" style="--c:${povVar(id)}">${E.portrait(id, M.cast)}<div><b>${esc(pick(c.name))}</b><span class="role">${esc(pick(c.role))}</span></div><p>${esc(pick(c.bio))}</p></div>`;
+    }).join('');
+  }
+  function renderNav() {
+    const nav = $('eps');
+    nav.innerHTML = M.episodes.map((ep, i) =>
+      `<button data-i="${i}" style="--c:${povVar(ep.pov)}" aria-current="${i === cur}" title="${esc(pick(ep.title))}" aria-label="${esc(UI[lang].ep(ep.no) + ' ' + pick(ep.title))}">${ep.no}</button>`).join('');
+    const b = nav.children[cur];
+    if (b) nav.scrollLeft = Math.max(0, (b.offsetLeft - nav.offsetLeft) - nav.clientWidth / 2 + b.offsetWidth / 2);
+  }
+  function renderEpisode() {
+    const ep = M.episodes[cur], t = UI[lang];
+    const prev = M.episodes[cur - 1], next = M.episodes[cur + 1];
+    const translated = !!(ep.title && ep.title[lang]);
+    const { html } = panelsHTML(ep);
+    $('episode').innerHTML =
+      `<div class="ep-head" id="ep-top"><span class="no">${esc(t.ep(ep.no))}</span><h2>${esc(pick(ep.title))}</h2>
+         <span class="pov" style="--c:${povVar(ep.pov)}">${esc(t.pov[ep.pov] || '')}</span><p class="hint">${esc(t.hint)}</p>
+         ${!translated && t.notice ? `<p class="notice">${esc(t.notice)}</p>` : ''}</div>
+       ${html}
+       ${ctaHTML(ep.cta)}
+       <aside class="tip"><h3>${esc(t.tip)}</h3><ul>${pickList(ep.tip).map(s => `<li>${esc(s)}</li>`).join('')}</ul></aside>
+       <div class="pager">
+         <button id="prev" ${prev ? '' : 'disabled'}><small>← ${esc(t.prev)}</small>${prev ? esc(pick(prev.title)) : '—'}</button>
+         <button id="next" ${next ? '' : 'disabled'}><small>${esc(t.next)} →</small>${next ? esc(pick(next.title)) : '—'}</button>
+       </div>`;
+    $('prev').onclick = () => go(cur - 1, true);
+    $('next').onclick = () => go(cur + 1, true);
+    $('lab-json').value = JSON.stringify(ep, null, 2);
+    $('lab-out').innerHTML = ''; $('lab-warns').innerHTML = ''; $('lab-status').textContent = '';
+  }
+  function renderStatic() {
+    document.documentElement.lang = LANGS.find(l => l.code === lang).html;
+    $('series-title').textContent = pick(M.series.title);
+    $('tagline').textContent = pick(M.series.tagline);
+    const all = E.validate(M);
+    const s = $('check-all');
+    s.textContent = all.length ? `全話チェック：${all.length}件の注意` : `全${M.episodes.length}話のチェック：問題なし`;
+    s.className = 'status ' + (all.length ? 'ng' : 'ok');
+    const cat = E.catalog();
+    $('catalog').innerHTML = Object.keys(LAB_CAT).map(k => `<dt>${esc(LAB_CAT[k])}</dt><dd>${esc(cat[k].join(', '))}</dd>`).join('');
+  }
+  function renderAll() { renderLangs(); renderStatic(); renderCast(); renderNav(); renderEpisode(); }
+  function setLang(code) {
+    if (code === lang) return;
+    lang = code; store.set('manga-lang', lang);
+    renderAll();  // 画面を作り直すだけなので一瞬で切り替わる（スクロール位置もそのまま）
+  }
+  function go(i, scroll) {
+    cur = Math.max(0, Math.min(M.episodes.length - 1, i));
+    if (location.hash !== '#ep-' + (cur + 1)) history.replaceState(null, '', '#ep-' + (cur + 1));
+    renderNav(); renderEpisode();
+    if (scroll) $('ep-top').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+  }
+  function fromHash() { const m = /^#ep-(\d+)$/.exec(location.hash); return m ? +m[1] - 1 : 0; }
+  function syncBarHeight() { document.documentElement.style.setProperty('--bar-h', $('bar').offsetHeight + 'px'); }
+
+  $('langs').addEventListener('click', e => { const b = e.target.closest('button[data-lang]'); if (b) setLang(b.dataset.lang); });
+  $('eps').addEventListener('click', e => { const b = e.target.closest('button[data-i]'); if (b) go(+b.dataset.i, true); });
+  window.addEventListener('hashchange', () => go(fromHash(), false));
+  window.addEventListener('resize', syncBarHeight);
+  $('lab-reset').onclick = () => renderEpisode();
+  $('lab-run').onclick = () => {
+    let ep;
+    try { ep = JSON.parse($('lab-json').value); }
+    catch (err) { $('lab-status').textContent = 'JSONの書き方に誤りがあります：' + err.message; $('lab-status').className = 'status ng'; return; }
+    const warns = E.validate({ cast: M.cast, episodes: [ep] });
+    const { html, warn } = panelsHTML(Object.assign({ panels: [], pov: 'mia' }, ep));
+    const list = [...new Set([...warns, ...warn])];
+    $('lab-out').innerHTML = html;
+    $('lab-warns').innerHTML = list.map(w => `<li>${esc(w)}</li>`).join('');
+    $('lab-status').textContent = list.length ? `${list.length}件の注意` : '問題なし';
+    $('lab-status').className = 'status ' + (list.length ? 'ng' : 'ok');
+  };
+
+  cur = Math.max(0, Math.min(M.episodes.length - 1, fromHash()));
+  renderAll();
+  syncBarHeight();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { renderEpisode(); syncBarHeight(); });
+})();
+</script>
