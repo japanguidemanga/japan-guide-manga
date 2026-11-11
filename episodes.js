@@ -3,7 +3,8 @@
  * 使える部品は MangaEngine.catalog() で確認できる。 */
 window.MANGA = {
   series: {
-    title: { ja: 'はじめてニッポン', en: 'First Time in Japan', zh: '初訪日本', ko: '처음 만나는 일본', es: 'Primera vez en Japón', pt: 'Primeira vez no Japão' },
+    title: { ja: 'JAPAN GUIDE MANGA', en: 'JAPAN GUIDE MANGA' },  // ロゴは全言語共通（index.html のロゴと合わせる）
+    subtitle: { ja: '公式・多言語マンガガイド', en: 'Official Multi-Language Comic Guide', zh: '官方多語言漫畫導覽', ko: '공식 다국어 만화 가이드', es: 'Guía Oficial de Cómics Multilingüe', pt: 'Guia Oficial de Quadrinhos Multilíngue' },
     tagline: {
       ja: 'カナダから来た兄妹ミアとレオが、日本で驚いたことを6コマで。',
       en: 'Siblings Mia and Leo from Canada share what surprised them in Japan, six panels at a time.',
@@ -14,13 +15,13 @@ window.MANGA = {
     }
   },
   cast: {
-    mia: { name: { ja: 'ミア', en: 'Mia', zh: '米亞', ko: '미아', es: 'Mia', pt: 'Mia' }, female: true, skin: '#fde3cf', hair: 'long', hairColor: '#e9c46a', top: '#ec7a6f', bottom: '#34507a', skirt: true,
+    mia: { name: { ja: 'ミア', en: 'Mia', zh: '米亞', ko: '미아', es: 'Mia', pt: 'Mia' }, icon: 'images/mia.pgn.jpg', female: true, skin: '#fde3cf', hair: 'long', hairColor: '#e9c46a', top: '#ec7a6f', bottom: '#34507a', skirt: true,
       accent: '#e2607a',
       role: { ja: '妹・女性目線', en: 'Sister · her view', zh: '妹妹・女生視角', ko: '여동생 · 그녀의 시선', es: 'Hermana · su mirada', pt: 'Irmã · o olhar dela' },
       bio: { ja: 'カナダ出身の大学生。好奇心旺盛で、何でもまず試してみる。', en: 'A university student from Canada. Curious, tries everything first.',
         zh: '來自加拿大的大學生。好奇心旺盛，什麼都想先試試看。', ko: '캐나다 출신 대학생. 호기심이 많아 뭐든 먼저 해 본다.',
         es: 'Universitaria de Canadá. Curiosa, lo prueba todo primero.', pt: 'Universitária do Canadá. Curiosa, experimenta tudo primeiro.' } },
-    leo: { name: { ja: 'レオ', en: 'Leo', zh: '里歐', ko: '레오', es: 'Leo', pt: 'Leo' }, skin: '#f6d6bd', hair: 'short', hairColor: '#9a5a32', top: '#2f9a8f', bottom: '#4a4f5c',
+    leo: { name: { ja: 'レオ', en: 'Leo', zh: '里歐', ko: '레오', es: 'Leo', pt: 'Leo' }, icon: 'images/leo.png.jpg', skin: '#f6d6bd', hair: 'short', hairColor: '#9a5a32', top: '#2f9a8f', bottom: '#4a4f5c',
       accent: '#23928a',
       role: { ja: '兄・男性目線', en: 'Brother · his view', zh: '哥哥・男生視角', ko: '오빠 · 그의 시선', es: 'Hermano · su mirada', pt: 'Irmão · o olhar dele' },
       bio: { ja: 'ミアの兄。慎重派だけど、食べることには目がない。', en: "Mia's older brother. Cautious, but can't resist good food.",
@@ -136,7 +137,57 @@ window.MANGA = {
       }
     },
     {
-      no: 3, pov: 'leo', title: { ja: 'ゴミ箱はどこ？', en: 'Where Are the Trash Cans?' },
+      no: 3, pov: 'both', title: { ja: 'おじぎのおもてなし', en: 'The Art of the Bow', zh: '鞠躬的待客之道', ko: '인사로 맞이하는 일본', es: 'El arte de la reverencia', pt: 'A arte da reverência' },
+      cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // アフィリエイトリンク（グルメ・体験予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep3_scene1.jpg', imageSize: [941, 1672], anchors: { okami: { x: 104, y: 378, s: 1 }, leo: { x: 166, y: 427, s: 1 }, mia: { x: 272, y: 459, s: 1 } },
+          scene: 'ryokan',
+          cap: { ja: '和食のお店へ。入口で店員さんが深々とおじぎ！', en: 'At a Japanese restaurant, the staff greet us with a deep bow!', zh: '走進日式餐廳，店員在門口深深鞠躬！', ko: '일식집에 들어가자 직원이 입구에서 깊이 인사했다!', es: 'En un restaurante japonés, nos reciben con una gran reverencia.', pt: 'Num restaurante japonês, nos recebem com uma reverência profunda!' },
+          chars: [{ id: 'okami', at: 'L', pose: 'bow', face: 'happy' }, { id: 'leo', at: 'C', pose: 'bow', face: 'shock' }, { id: 'mia', at: 'R', pose: 'bow', face: 'surprised' }],
+          lines: [{ who: 'okami', ja: 'いらっしゃいませ！', en: 'Welcome!', zh: '歡迎光臨！', ko: '어서 오세요!', es: '¡Bienvenidos!', pt: 'Bem-vindos!' },
+            { who: 'leo', ja: 'お、おじぎ返さなきゃ!?', en: 'D-do we bow back?!', zh: '要、要回禮嗎!?', ko: '우, 우리도 인사해야 해!?', es: '¿¡D-debemos inclinarnos!?', pt: 'A-a gente se curva também?!', type: 'shout' }] },
+        { image: 'images/web/ep3_scene2.jpg', imageSize: [941, 1672], anchors: { okami: { x: 119, y: 380, s: 1.1 }, leo: { x: 238, y: 419, s: 1 }, mia: { x: 336, y: 434, s: 1 } },
+          scene: 'ryokan',
+          cap: { ja: 'お茶とおしぼりは無料。持ってくるたびに、またおじぎ。', en: 'Free tea and a hot towel. And another bow each time.', zh: '茶和濕毛巾都免費。每次送來，又是一個鞠躬。', ko: '차와 물수건은 무료. 가져올 때마다 또 인사.', es: 'Té y toallita gratis. Y otra reverencia cada vez.', pt: 'Chá e toalhinha grátis. E outra reverência a cada vez.' },
+          chars: [{ id: 'okami', at: 'L', pose: 'bow', face: 'happy' }, { id: 'leo', at: 'RC', face: 'surprised' }, { id: 'mia', at: 'R', pose: 'hold', face: 'moved' }],
+          lines: [{ who: 'leo', ja: 'またおじぎ!?', en: 'Another bow?!', zh: '又鞠躬了!?', ko: '또 인사!?', es: '¿¡Otra reverencia!?', pt: 'Outra reverência?!', pos: { x: 160, y: 318 } },
+            { who: 'mia', ja: 'おしぼり、あったかい〜', en: 'The towel is warm~', zh: '濕毛巾暖暖的～', ko: '물수건 따뜻해~', es: 'La toallita está tibia~', pt: 'A toalhinha é quentinha~', pos: { x: 305, y: 352 } }] },
+        { image: 'images/web/ep3_scene3.jpg', imageSize: [941, 1672], anchors: { leo: { x: 149, y: 468, s: 1 }, mia: { x: 327, y: 421, s: 1 } },
+          scene: 'ryokan',
+          cap: { ja: '返そうとして、レオは深く下げすぎた。', en: 'Trying to bow back, Leo went way too low.', zh: '想回禮的里歐，頭低得太深了。', ko: '답례하려던 레오는 너무 깊이 숙였다.', es: 'Al devolver la reverencia, Leo se inclinó demasiado.', pt: 'Ao retribuir, Leo se curvou demais.' },
+          chars: [{ id: 'leo', at: 'LC', pose: 'bow', face: 'shock' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'やりすぎ！', en: 'Too much!', zh: '太誇張了！', ko: '너무 과해!', es: '¡Te pasaste!', pt: 'Exagerou!' }],
+          sfx: [{ ja: 'ゴンッ！', en: 'BONK!', zh: '咚！', ko: '쿵!', es: '¡PUM!', pt: 'PÁ!', x: 150, y: 380, rot: -8, color: '#d9473a' }] },
+        { image: 'images/web/ep3_scene4.jpg', imageSize: [941, 1672], anchors: { mia: { x: 128, y: 421, s: 1 }, leo: { x: 294, y: 383, s: 1 } },
+          scene: 'ryokan',
+          cap: { ja: 'お客さんは軽い会釈でOK。15度くらいで十分。', en: 'Guests just need a small nod. About 15 degrees is plenty.', zh: '客人只要輕輕點頭致意就好，大約15度就夠了。', ko: '손님은 가볍게 목례만 하면 OK. 15도 정도면 충분.', es: 'Los clientes solo necesitan un leve saludo: unos 15 grados bastan.', pt: 'Clientes só precisam de um leve aceno: uns 15 graus bastam.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'bow', face: 'happy' }, { id: 'leo', at: 'R', face: 'confused' }],
+          lines: [{ who: 'mia', ja: 'このくらい？', en: 'Like this?', zh: '這樣嗎？', ko: '이 정도?', es: '¿Así?', pt: 'Assim?', pos: { x: 118, y: 296 } },
+            { who: 'leo', ja: 'それでいいんだ！', en: "Oh, that's enough!", zh: '原來這樣就好！', ko: '그거면 되는구나!', es: '¡Ah, con eso basta!', pt: 'Ah, assim já basta!', pos: { x: 290, y: 316 } }] },
+        { image: 'images/web/ep3_scene5.jpg', imageSize: [941, 1672], anchors: { mia: { x: 98, y: 429, s: 1 }, leo: { x: 170, y: 389, s: 1 }, okami: { x: 277, y: 385, s: 1 } },
+          scene: 'ryokan',
+          cap: { ja: '帰りは「ごちそうさまでした」。言うと喜ばれる。', en: 'When leaving, say "Gochisōsama deshita" (thanks for the meal).', zh: '離開時說聲「Gochisōsama deshita（多謝款待）」，店家會很開心。', ko: '나갈 때 "고치소사마데시타(잘 먹었습니다)"라고 하면 좋아한다.', es: 'Al salir, di «Gochisōsama deshita» (gracias por la comida).', pt: 'Ao sair, diga "Gochisōsama deshita" (obrigado pela refeição).' },
+          chars: [{ id: 'mia', at: 'L', pose: 'bow', face: 'happy' }, { id: 'leo', at: 'C', face: 'happy' }, { id: 'okami', at: 'R', pose: 'bow', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'ごちそうさまでした！', en: 'Gochisōsama deshita!', zh: 'Gochisōsama deshita！', ko: '고치소사마데시타!', es: '¡Gochisōsama deshita!', pt: 'Gochisōsama deshita!', pos: { x: 110, y: 290 } },
+            { who: 'okami', ja: 'ありがとうございました！', en: 'Thank you very much!', zh: '謝謝光臨！', ko: '감사합니다!', es: '¡Muchas gracias!', pt: 'Muito obrigada!', pos: { x: 290, y: 314 } }] },
+        { image: 'images/web/ep3_scene6.jpg', imageSize: [941, 1672], anchors: { leo: { x: 38, y: 447, s: 1 }, mia: { x: 136, y: 472, s: 1 }, okami: { x: 332, y: 444, s: .8 } },
+          scene: 'street',
+          cap: { ja: '店員さんは、見えなくなるまで見送ってくれることも。', en: 'Sometimes staff keep bowing until you are out of sight.', zh: '有時店員會一直目送到看不見為止。', ko: '직원이 안 보일 때까지 배웅해 줄 때도 있다.', es: 'A veces el personal se despide hasta perderte de vista.', pt: 'Às vezes a equipe se despede até você sumir de vista.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'bow', face: 'shock' }, { id: 'mia', at: 'LC', pose: 'bow', face: 'embarrassed' }, { id: 'okami', at: 'R', pose: 'bow', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'まだおじぎしてる！', en: "She's STILL bowing!", zh: '還在鞠躬！', ko: '아직도 인사하고 있어!', es: '¡Sigue con la reverencia!', pt: 'Ela ainda está se curvando!', type: 'shout', pos: { x: 108, y: 300 } },
+            { who: 'mia', ja: 'おじぎが終わらない…', en: 'The bowing never ends...', zh: '鞠躬停不下來…', ko: '인사가 끝나질 않아…', es: 'Esto no termina nunca...', pt: 'Isso não acaba nunca...', type: 'think', pos: { x: 285, y: 345 } }] }
+      ],
+      tip: {
+        ja: ['店員さんへのお礼は、軽い会釈（15度くらい）で十分。', '多くの和食店では、お茶とおしぼりは無料。おしぼりは手をふくためのもの。', '帰るときの「ごちそうさまでした」は、お店の人にうれしい一言。'],
+        en: ['A small nod (about 15°) is enough to thank staff.', 'Most Japanese restaurants serve free tea and a wet towel. The towel is for your hands.', 'Saying "Gochisōsama deshita" when leaving makes staff happy.'],
+        zh: ['向店員道謝，輕輕點頭（約15度）就夠了。', '多數日式餐廳免費提供茶和濕毛巾。濕毛巾是用來擦手的。', '離開時說聲「Gochisōsama deshita（多謝款待）」，店家會很開心。'],
+        ko: ['직원에게는 가벼운 목례(15도 정도)면 충분하다.', '대부분의 일식집은 차와 물수건이 무료. 물수건은 손을 닦는 용도.', '나갈 때 "고치소사마데시타(잘 먹었습니다)"라고 하면 가게 사람이 좋아한다.'],
+        es: ['Para agradecer al personal basta un leve saludo (unos 15°).', 'Casi todos los restaurantes japoneses dan té y toallita húmeda gratis. La toallita es para las manos.', 'Decir «Gochisōsama deshita» al salir alegra al personal.'],
+        pt: ['Para agradecer à equipe, basta um leve aceno (uns 15°).', 'A maioria dos restaurantes japoneses oferece chá e toalhinha úmida grátis. A toalhinha é para as mãos.', 'Dizer "Gochisōsama deshita" ao sair deixa a equipe feliz.']
+      }
+    },
+    {
+      no: 4, pov: 'leo', title: { ja: 'ゴミ箱はどこ？', en: 'Where Are the Trash Cans?' },
       panels: [
         { scene: 'street', cap: { ja: '街を歩いて気づいた。ゴミがひとつも落ちていない。', en: 'Walking around, I noticed: not a single piece of litter.' },
           chars: [{ id: 'leo', at: 'LC', pose: 'point', face: 'surprised' }],
@@ -163,7 +214,7 @@ window.MANGA = {
       }
     },
     {
-      no: 4, pov: 'mia', title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons' },
+      no: 5, pov: 'mia', title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons' },
       panels: [
         { scene: 'toilet', cap: { ja: 'ホテルのトイレ。フタが勝手に開いた！', en: 'Hotel restroom. The lid opened by itself!' },
           chars: [{ id: 'mia', at: 'L', face: 'shock', pose: 'handsup' }],
@@ -192,7 +243,7 @@ window.MANGA = {
       }
     },
     {
-      no: 5, pov: 'leo', title: { ja: 'ラーメンは券売機から', en: 'Ramen Starts at a Machine' },
+      no: 6, pov: 'leo', title: { ja: 'ラーメンは券売機から', en: 'Ramen Starts at a Machine' },
       panels: [
         { scene: 'street', cap: { ja: '行列のできるラーメン店を発見。', en: 'Found a ramen shop with a line outside.' },
           chars: [{ id: 'leo', at: 'L', pose: 'point', face: 'happy' }, { id: 'salaryman', at: 'RC', facing: 'right' }],
@@ -222,7 +273,7 @@ window.MANGA = {
       }
     },
     {
-      no: 6, pov: 'mia', title: { ja: '温泉デビュー', en: 'My First Onsen' },
+      no: 7, pov: 'mia', title: { ja: '温泉デビュー', en: 'My First Onsen' },
       panels: [
         { scene: 'ryokan', cap: { ja: '旅館で温泉へ。でも水着は禁止！', en: 'Off to the hot spring at our inn. But no swimsuits!' },
           chars: [{ id: 'okami', at: 'L', pose: 'bow', face: 'calm' }, { id: 'mia', at: 'R', face: 'shock' }],
@@ -249,7 +300,7 @@ window.MANGA = {
       }
     },
     {
-      no: 7, pov: 'leo', title: { ja: 'お釣りのトレーとお辞儀', en: 'The Coin Tray and the Bow' },
+      no: 8, pov: 'leo', title: { ja: 'お釣りのトレーとお辞儀', en: 'The Coin Tray and the Bow' },
       panels: [
         { scene: 'konbini', cap: { ja: 'お店に入ると「いらっしゃいませ！」の声。', en: 'Walk into a shop and you hear "Irasshaimase!"' },
           chars: [{ id: 'clerk', at: 'L', pose: 'bow', face: 'happy' }, { id: 'leo', at: 'R', pose: 'wave', face: 'surprised' }],
@@ -276,7 +327,7 @@ window.MANGA = {
       }
     },
     {
-      no: 8, pov: 'mia', title: { ja: '財布が戻ってきた', en: 'My Wallet Came Back' },
+      no: 9, pov: 'mia', title: { ja: '財布が戻ってきた', en: 'My Wallet Came Back' },
       panels: [
         { scene: 'room', cap: { ja: 'ホテルに戻って気づいた。財布がない！', en: "Back at the hotel, I realized my wallet was gone!" },
           chars: [{ id: 'mia', at: 'C', pose: 'handsup', face: 'shock' }], fx: [{ type: 'gloom', who: 'mia' }],
@@ -303,7 +354,7 @@ window.MANGA = {
       }
     },
     {
-      no: 9, pov: 'leo', title: { ja: '神社のお参り', en: 'Visiting a Shrine' },
+      no: 10, pov: 'leo', title: { ja: '神社のお参り', en: 'Visiting a Shrine' },
       panels: [
         { scene: 'shrine', cap: { ja: '赤い鳥居の神社へ。鳥居は神様の場所への入口。', en: 'A shrine with a red torii, the gateway to a sacred place.' },
           chars: [{ id: 'leo', at: 'L', face: 'moved' }, { id: 'mia', at: 'R', pose: 'point', face: 'happy', facing: 'left' }],
@@ -330,7 +381,7 @@ window.MANGA = {
       }
     },
     {
-      no: 10, pov: 'both', title: { ja: '帰国して気づいたこと', en: 'What We Noticed Back Home' },
+      no: 11, pov: 'both', title: { ja: '帰国して気づいたこと', en: 'What We Noticed Back Home' },
       panels: [
         { scene: 'airport', cap: { ja: '楽しい旅もおしまい。カナダへ帰国。', en: 'The trip is over. Time to fly home to Canada.' },
           chars: [{ id: 'mia', at: 'L', pose: 'wave', face: 'sad' }, { id: 'leo', at: 'R', pose: 'hold', item: 'suitcase', face: 'sad' }],
