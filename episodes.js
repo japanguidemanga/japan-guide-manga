@@ -15,13 +15,13 @@ window.MANGA = {
     }
   },
   cast: {
-    mia: { name: { ja: 'ミア', en: 'Mia', zh: '米亞', ko: '미아', es: 'Mia', pt: 'Mia' }, icon: 'images/mia.pgn.jpg', female: true, skin: '#fde3cf', hair: 'long', hairColor: '#e9c46a', top: '#ec7a6f', bottom: '#34507a', skirt: true,
+    mia: { name: { ja: 'ミア', en: 'Mia', zh: '米亞', ko: '미아', es: 'Mia', pt: 'Mia' }, icon: 'images/web/mia_icon.jpg', female: true, skin: '#fde3cf', hair: 'long', hairColor: '#e9c46a', top: '#ec7a6f', bottom: '#34507a', skirt: true,
       accent: '#e2607a',
       role: { ja: '妹・女性目線', en: 'Sister · her view', zh: '妹妹・女生視角', ko: '여동생 · 그녀의 시선', es: 'Hermana · su mirada', pt: 'Irmã · o olhar dela' },
       bio: { ja: 'カナダ出身の大学生。好奇心旺盛で、何でもまず試してみる。', en: 'A university student from Canada. Curious, tries everything first.',
         zh: '來自加拿大的大學生。好奇心旺盛，什麼都想先試試看。', ko: '캐나다 출신 대학생. 호기심이 많아 뭐든 먼저 해 본다.',
         es: 'Universitaria de Canadá. Curiosa, lo prueba todo primero.', pt: 'Universitária do Canadá. Curiosa, experimenta tudo primeiro.' } },
-    leo: { name: { ja: 'レオ', en: 'Leo', zh: '里歐', ko: '레오', es: 'Leo', pt: 'Leo' }, icon: 'images/leo.png.jpg', skin: '#f6d6bd', hair: 'short', hairColor: '#9a5a32', top: '#2f9a8f', bottom: '#4a4f5c',
+    leo: { name: { ja: 'レオ', en: 'Leo', zh: '里歐', ko: '레오', es: 'Leo', pt: 'Leo' }, icon: 'images/web/leo_icon.jpg', skin: '#f6d6bd', hair: 'short', hairColor: '#9a5a32', top: '#2f9a8f', bottom: '#4a4f5c',
       accent: '#23928a',
       role: { ja: '兄・男性目線', en: 'Brother · his view', zh: '哥哥・男生視角', ko: '오빠 · 그의 시선', es: 'Hermano · su mirada', pt: 'Irmão · o olhar dele' },
       bio: { ja: 'ミアの兄。慎重派だけど、食べることには目がない。', en: "Mia's older brother. Cautious, but can't resist good food.",

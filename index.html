@@ -278,6 +278,23 @@ details.lab summary { font-weight: 700; cursor: pointer; }
     $('langs').innerHTML = LANGS.map(l =>
       `<button data-lang="${l.code}" lang="${l.html}" aria-pressed="${l.code === lang}">${l.label}</button>`).join('');
   }
+  /* 画像は fetch で読み込み、blob URL に差し替える。
+     公開ページ（claude.ai）では、SVG内の <image> や後から作った <img> が相対パスのまま読めないことがあるため。
+     fetch できないとき（file:// で開いたときなど）は元のパスのまま表示する。 */
+  const blobCache = new Map();
+  function blobUrl(u) {
+    if (!blobCache.has(u)) blobCache.set(u, fetch(u).then(r => r.ok ? r.blob() : Promise.reject(r.status)).then(b => URL.createObjectURL(b)).catch(() => null));
+    return blobCache.get(u);
+  }
+  function hydrateImages(root) {
+    root.querySelectorAll('svg image, img').forEach(el => {
+      const attr = el.tagName.toLowerCase() === 'img' ? 'src' : 'href';
+      const u = el.getAttribute(attr) || el.getAttribute('xlink:href');
+      if (!u || /^(blob:|data:|https?:)/.test(u)) return;
+      blobUrl(u).then(b => { if (b) { el.setAttribute(attr, b); if (attr === 'href') el.removeAttribute('xlink:href'); } });
+    });
+  }
+
   function renderCast() {
     $('cast').innerHTML = ['mia', 'leo'].map(id => {
       const c = M.cast[id];
@@ -285,6 +302,7 @@ details.lab summary { font-weight: 700; cursor: pointer; }
       const face = c.icon ? `<img src="${esc(c.icon)}" alt="" width="52" height="52" decoding="async">` : E.portrait(id, M.cast);
       return `<div class="who" style="--c:${povVar(id)}">${face}<div><b>${esc(pick(c.name))}</b><span class="role">${esc(pick(c.role))}</span></div><p>${esc(pick(c.bio))}</p></div>`;
     }).join('');
+    hydrateImages($('cast'));
   }
   function renderNav() {
     const nav = $('eps');
@@ -309,6 +327,7 @@ details.lab summary { font-weight: 700; cursor: pointer; }
          <button id="prev" ${prev ? '' : 'disabled'}><small>← ${esc(t.prev)}</small>${prev ? esc(pick(prev.title)) : '—'}</button>
          <button id="next" ${next ? '' : 'disabled'}><small>${esc(t.next)} →</small>${next ? esc(pick(next.title)) : '—'}</button>
        </div>`;
+    hydrateImages($('episode'));
     $('prev').onclick = () => go(cur - 1, true);
     $('next').onclick = () => go(cur + 1, true);
     $('lab-json').value = JSON.stringify(ep, null, 2);
@@ -353,6 +372,7 @@ details.lab summary { font-weight: 700; cursor: pointer; }
     const { html, warn } = panelsHTML(Object.assign({ panels: [], pov: 'mia' }, ep));
     const list = [...new Set([...warns, ...warn])];
     $('lab-out').innerHTML = html;
+    hydrateImages($('lab-out'));
     $('lab-warns').innerHTML = list.map(w => `<li>${esc(w)}</li>`).join('');
     $('lab-status').textContent = list.length ? `${list.length}件の注意` : '問題なし';
     $('lab-status').className = 'status ' + (list.length ? 'ng' : 'ok');
