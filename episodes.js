@@ -188,6 +188,7 @@ window.MANGA = {
     },
     {
       no: 4, pov: 'leo', title: { ja: 'ゴミ箱はどこ？', en: 'Where Are the Trash Cans?', zh: '垃圾桶在哪裡？', ko: '쓰레기통은 어디에?', es: '¿Dónde están las papeleras?', pt: 'Cadê as lixeiras?' },
+      cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
       panels: [
         { image: 'images/web/ep4_scene1.jpg', imageSize: [864, 1536], anchors: { leo: { x: 139, y: 252, s: 1 } },
           scene: 'street',
@@ -233,32 +234,50 @@ window.MANGA = {
       }
     },
     {
-      no: 5, pov: 'mia', title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons' },
+      no: 5, pov: 'mia', title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons', zh: '按鈕好多的馬桶', ko: '버튼투성이 화장실', es: 'El inodoro de los botones', pt: 'O vaso cheio de botões' },
+      cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
       panels: [
-        { scene: 'toilet', cap: { ja: 'ホテルのトイレ。フタが勝手に開いた！', en: 'Hotel restroom. The lid opened by itself!' },
-          chars: [{ id: 'mia', at: 'L', face: 'shock', pose: 'handsup' }],
-          sfx: [{ ja: 'ウィーン', en: 'WHIRR', x: 260, y: 128 }] },
-        { scene: 'toilet', cap: { ja: '便座はあったかい。冬にうれしい。', en: 'The seat is heated. So nice in winter.' },
-          chars: [{ id: 'mia', at: 'L', face: 'calm' }],
-          lines: [{ who: 'mia', ja: 'あったか～い', en: 'So warm~' }], fx: [{ type: 'hearts', who: 'mia' }] },
-        { scene: 'plain', cap: { ja: 'でも、ボタンがたくさん…', en: 'But there are so many buttons...' },
-          chars: [{ id: 'mia', at: 'L', face: 'confused', pose: 'think' }], props: [{ item: 'toiletpanel', x: 280, y: 214, s: 1.4 }],
-          lines: [{ who: 'mia', ja: 'どれを押せば…？', en: 'Which one do I press...?', type: 'think' }] },
-        { scene: 'impact', cap: { ja: 'とりあえず押したら、水が出てきた！', en: 'I pressed one at random, and water shot out!' },
+        { image: 'images/web/ep5_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 255, s: 1 } },
+          scene: 'toilet',
+          cap: { ja: 'ホテルのトイレ。フタが勝手に開いた！', en: 'Hotel restroom. The lid opened by itself!', zh: '飯店的廁所。馬桶蓋自己打開了！', ko: '호텔 화장실. 뚜껑이 저절로 열렸다!', es: 'Baño del hotel. ¡La tapa se abrió sola!', pt: 'Banheiro do hotel. A tampa abriu sozinha!' },
+          chars: [{ id: 'mia', at: 'LC', face: 'shock', pose: 'handsup' }],
+          lines: [{ who: 'mia', ja: 'ひとりでに!?', en: 'All by itself?!', zh: '自己打開!?', ko: '저절로!?', es: '¿¡Sola!?', pt: 'Sozinha?!', type: 'shout' }],
+          sfx: [{ ja: 'ウィーン', en: 'WHIRR', zh: '嗡——', ko: '위잉', es: 'BZZZ', pt: 'VRUUM', x: 300, y: 330, rot: -8, color: '#3a8fd6' }] },
+        { image: 'images/web/ep5_scene2.jpg', imageSize: [864, 1536], anchors: { mia: { x: 177, y: 271, s: 1 } },
+          scene: 'toilet',
+          cap: { ja: '便座はあったかい。冬にうれしい。', en: 'The seat is heated. So nice in winter.', zh: '馬桶座是溫的。冬天超幸福。', ko: '변기 시트가 따뜻하다. 겨울에 최고.', es: 'El asiento está climatizado. Una maravilla en invierno.', pt: 'O assento é aquecido. Ótimo no inverno.' },
+          chars: [{ id: 'mia', at: 'C', face: 'calm' }],
+          lines: [{ who: 'mia', ja: 'あったか～い', en: 'So warm~', zh: '暖暖的～', ko: '따뜻해~', es: 'Qué calentito~', pt: 'Que quentinho~' }] },
+        { image: 'images/web/ep5_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 78, y: 208, s: 1 } },
+          scene: 'toilet',
+          cap: { ja: 'でも、ボタンがたくさん…', en: 'But there are so many buttons...', zh: '可是，按鈕好多…', ko: '그런데 버튼이 너무 많아…', es: 'Pero hay muchísimos botones...', pt: 'Mas tem botões demais...' },
+          chars: [{ id: 'mia', at: 'L', face: 'confused', pose: 'think' }],
+          lines: [{ who: 'mia', ja: 'どれを押せば…？', en: 'Which one do I press...?', zh: '該按哪一個…？', ko: '뭘 눌러야 하지…?', es: '¿Cuál aprieto...?', pt: 'Qual eu aperto...?', type: 'think' }] },
+        { image: 'images/web/ep5_scene4.jpg', imageSize: [864, 1536], anchors: { mia: { x: 144, y: 282, s: 1 } },
+          scene: 'toilet',
+          cap: { ja: 'とりあえず押したら、水が出てきた！', en: 'I pressed one at random, and water shot out!', zh: '隨便按了一個，結果噴水了！', ko: '아무거나 눌렀더니 물이 뿜어져 나왔다!', es: 'Apreté uno al azar, ¡y salió un chorro de agua!', pt: 'Apertei um qualquer e saiu um jato de água!' },
           chars: [{ id: 'mia', at: 'C', pose: 'handsup', face: 'shock' }],
-          lines: [{ who: 'mia', ja: '止まってー！', en: 'Make it stop!', type: 'shout' }],
-          sfx: [{ ja: 'ピューッ', en: 'SPLASH!', x: 90, y: 250, rot: -12, color: '#3a8fd6' }] },
-        { scene: 'plain', cap: { ja: '「止」がストップ。オレンジ色のことが多い。', en: '「止」means STOP. It is usually orange.' },
-          chars: [{ id: 'mia', at: 'R', pose: 'point', face: 'happy' }], props: [{ item: 'toiletpanel', x: 140, y: 214, s: 1.4, hl: 'stop' }],
-          lines: [{ who: 'mia', ja: 'これだ！', en: 'This one!' }] },
-        { scene: 'room', cap: { ja: '流水音に温水洗浄…もう手放せない。', en: 'Water sounds, warm wash... I can\'t live without it now.' },
+          lines: [{ who: 'mia', ja: '止まってー！', en: 'Make it stop!', zh: '快停下來！', ko: '멈춰~!', es: '¡Que pare!', pt: 'Para, para!', type: 'shout' }],
+          sfx: [{ ja: 'ピューッ', en: 'SPLASH!', zh: '噗咻！', ko: '촤악!', es: '¡FSSS!', pt: 'XUÁ!', x: 310, y: 215, rot: -12, color: '#3a8fd6' }] },
+        { image: 'images/web/ep5_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 239, y: 282, s: 1 } },
+          scene: 'toilet',
+          cap: { ja: '「止」がストップ。オレンジ色のことが多い。', en: 'The 止 button means STOP. It is often orange.', zh: '「止」就是停止鍵，通常是橘色的。', ko: '「止」가 정지 버튼. 주황색인 경우가 많다.', es: 'El botón 止 significa PARAR. Suele ser naranja.', pt: 'O botão 止 significa PARAR. Costuma ser laranja.' },
+          chars: [{ id: 'mia', at: 'RC', pose: 'point', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'これだ！', en: 'This one!', zh: '就是這個！', ko: '이거다!', es: '¡Este!', pt: 'É este!' }] },
+        { image: 'images/web/ep5_scene6.jpg', imageSize: [864, 1536], anchors: { mia: { x: 141, y: 331, s: 1 }, leo: { x: 287, y: 331, s: 1 } },
+          scene: 'room',
+          cap: { ja: '流水音に温水洗浄…もう手放せない。', en: 'Water sounds, warm wash... I can\'t live without it now.', zh: '流水聲、溫水洗淨…已經離不開了。', ko: '물소리 기능에 비데까지… 이제 없으면 못 살아.', es: 'Sonido de agua, lavado tibio... ya no puedo vivir sin él.', pt: 'Som de água, ducha morna... não vivo mais sem.' },
           chars: [{ id: 'mia', at: 'L', face: 'moved', pose: 'handsup' }, { id: 'leo', at: 'R', face: 'confused' }],
-          lines: [{ who: 'mia', ja: '家にもほしい！', en: 'I want one at home!' }, { who: 'leo', ja: '長かったね', en: 'You took a while.' }],
-          fx: [{ type: 'notes', who: 'mia' }] }
+          lines: [{ who: 'mia', ja: '家にもほしい！', en: 'I want one at home!', zh: '家裡也想要一台！', ko: '집에도 갖고 싶어!', es: '¡Quiero uno en casa!', pt: 'Quero um em casa!', pos: { x: 108, y: 190 } },
+            { who: 'leo', ja: '長かったね', en: 'You took a while.', zh: '妳待好久喔', ko: '오래 걸렸네', es: 'Tardaste mucho.', pt: 'Você demorou, hein.', pos: { x: 300, y: 258 } }] }
       ],
       tip: {
         ja: ['「止」= STOP。迷ったらまずこれを押す。', '「おしり」「ビデ」は洗浄、「音」は流水音のボタン。', 'トイレットペーパーはそのまま流してOK。'],
-        en: ['「止」= STOP. When in doubt, press it first.', '「おしり」and「ビデ」are wash buttons;「音」plays water sounds.', 'Toilet paper goes straight into the toilet.']
+        en: ['「止」= STOP. When in doubt, press it first.', '「おしり」and「ビデ」are wash buttons;「音」plays water sounds.', 'Toilet paper goes straight into the toilet.'],
+        zh: ['「止」= 停止。不知道按哪個時，先按這個。', '「おしり」「ビデ」是洗淨鍵，「音」會播放流水聲。', '衛生紙可以直接丟進馬桶沖掉。'],
+        ko: ['「止」= 정지. 헷갈리면 먼저 이걸 누르자.', '「おしり」「ビデ」는 세정, 「音」은 물소리 버튼.', '휴지는 변기에 그대로 흘려보내도 OK.'],
+        es: ['「止」= PARAR. Si dudas, aprieta este primero.', '「おしり」y「ビデ」son botones de lavado;「音」reproduce sonido de agua.', 'El papel higiénico se tira directamente al inodoro.'],
+        pt: ['「止」= PARAR. Na dúvida, aperte este primeiro.', '「おしり」e「ビデ」são botões de ducha;「音」toca som de água.', 'O papel higiênico pode ir direto no vaso.']
       }
     },
     {
