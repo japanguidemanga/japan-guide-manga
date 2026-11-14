@@ -672,7 +672,10 @@ window.MANGA = {
         es: ['Hombres y mujeres suelen dormir en plantas separadas.', 'Las cápsulas no tienen cerradura: guarda lo valioso en la taquilla.', 'Silencio por la noche y el móvil en modo silencio.'],
         pt: ['Homens e mulheres costumam ficar em andares separados.', 'As cápsulas não têm tranca: guarde objetos de valor no armário.', 'Silêncio à noite e celular no silencioso.']
       }
-    },
+    }
+  ],
+  // 下書き（未公開）。サイトには表示されない。完成したら episodes の最後へ戻す。
+  drafts: [
     {
       no: 16, pov: 'both', title: { ja: '帰国して気づいたこと', en: 'What We Noticed Back Home' },
       panels: [
