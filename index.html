@@ -70,6 +70,25 @@ main { display: grid; gap: 26px; padding-block: 20px 28px; }
 .ep-head .no { font-family: var(--display); font-size: 16px; color: var(--muted); }
 .ep-head h2 { font-family: var(--display); font-weight: 400; font-size: clamp(28px, 8vw, 36px); margin: 0; line-height: 1.2; text-wrap: balance; }
 html:not([lang="ja"]) .ep-head h2 { font-family: var(--body); font-weight: 900; }
+/* 各話の題字バナー：YouTubeのタイトルカードと同じ見出しを、1コマ目の絵の上に中央ぞろえで大きく */
+.ep-banner { position: relative; display: grid; place-items: center; text-align: center; gap: 8px; min-height: 230px; max-width: 100%; align-content: center;
+  border: 3px solid var(--frame); border-radius: 14px; overflow: hidden; padding: 18px 14px; box-sizing: border-box; color: #fff;
+  background: #2b2f38 var(--bg) center 22% / cover no-repeat; }
+.ep-banner::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,12,18,.78) 0%, rgba(10,12,18,.55) 55%, rgba(10,12,18,.2) 100%); }
+.ep-banner { grid-template-columns: minmax(0, 1fr); }
+.ep-banner > * { position: relative; margin: 0; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+.ep-banner .pill { font-family: var(--display); font-size: 13px; letter-spacing: .06em; background: #e8323c; color: #fff; border-radius: 999px; padding: 3px 14px; }
+.ep-banner .k { display: grid; gap: 2px; font-family: var(--display); font-weight: 400; line-height: 1.05; letter-spacing: .01em; text-wrap: balance;
+  paint-order: stroke fill; -webkit-text-stroke: 5px #14161c; text-shadow: 0 3px 10px rgba(0,0,0,.45); }
+.ep-banner .k .t { font-size: clamp(15px, 5.6vw, 28px); color: #fff; }
+.ep-banner .k .m { font-size: clamp(17px, 7vw, 34px); color: #ffd23f; }
+.ep-banner .pill { justify-self: center; }
+.ep-banner .k { -webkit-text-stroke-width: 4px; }
+.ep-banner h2 { font-family: var(--body) !important; font-weight: 900 !important; font-size: 16px !important; line-height: 1.35 !important; color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,.8); max-width: 26em; }
+.ep-head.has-banner { justify-items: center; text-align: center; }
+.ep-head.has-banner .ep-banner { justify-self: stretch; }
+.ep-head.has-banner .pov { justify-self: center; }
 .pov { justify-self: start; font-weight: 700; font-size: 14px; color: var(--c); border: 2px solid var(--c); border-radius: 999px; padding: 1px 12px; }
 .hint { font-size: 14px; color: var(--muted); margin: 0; }
 .notice { margin: 0; font-size: 14px; font-weight: 700; color: var(--indigo); background: var(--tip); border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; }
@@ -311,13 +330,23 @@ details.lab summary { font-weight: 700; cursor: pointer; }
     const b = nav.children[cur];
     if (b) nav.scrollLeft = Math.max(0, (b.offsetLeft - nav.offsetLeft) - nav.clientWidth / 2 + b.offsetWidth / 2);
   }
+  // 題字バナーの背景：その話の最初の画像コマ
+  function bannerBg(ep) {
+    const p = (ep.panels || []).find(q => q.image);
+    return p ? `url('${String(p.image).replace(/['"()\\]/g, '')}')` : 'none';
+  }
   function renderEpisode() {
     const ep = M.episodes[cur], t = UI[lang];
     const prev = M.episodes[cur - 1], next = M.episodes[cur + 1];
     const translated = !!(ep.title && ep.title[lang]);
     const { html } = panelsHTML(ep);
     $('episode').innerHTML =
-      `<div class="ep-head" id="ep-top"><span class="no">${esc(t.ep(ep.no))}</span><h2>${esc(pick(ep.title))}</h2>
+      (ep.kicker
+        ? `<div class="ep-head has-banner" id="ep-top"><div class="ep-banner" style="--bg:${bannerBg(ep)}">
+             <span class="pill">${esc(t.ep(ep.no))}</span>
+             <p class="k" aria-hidden="true"><span class="t">${esc(ep.kicker.top)}</span><span class="m">${esc(ep.kicker.main)}</span></p>
+             <h2>${esc(pick(ep.title))}</h2></div>`
+        : `<div class="ep-head" id="ep-top"><span class="no">${esc(t.ep(ep.no))}</span><h2>${esc(pick(ep.title))}</h2>`) + `
          <span class="pov" style="--c:${povVar(ep.pov)}">${esc(t.pov[ep.pov] || '')}</span><p class="hint">${esc(t.hint)}</p>
          ${!translated && t.notice ? `<p class="notice">${esc(t.notice)}</p>` : ''}</div>
        ${html}

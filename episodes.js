@@ -39,7 +39,7 @@ window.MANGA = {
   },
   episodes: [
     {
-      no: 1, pov: 'leo', title: { ja: '静かすぎる電車', en: 'The Too-Quiet Train', zh: '安靜過頭的電車', ko: '너무 조용한 전철', es: 'El tren demasiado silencioso', pt: 'O trem silencioso demais' },
+      no: 1, pov: 'leo', kicker: { top: "THE TRAIN IS", main: "TOO QUIET?!" }, title: { ja: '静かすぎる電車', en: 'The Too-Quiet Train', zh: '安靜過頭的電車', ko: '너무 조용한 전철', es: 'El tren demasiado silencioso', pt: 'O trem silencioso demais' },
       cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // アフィリエイトリンク（Wi-Fi予約）。href を差し替える
       panels: [
         { image: 'images/web/ep1_scene1.jpg', imageSize: [1536, 1024], focus: 0.33, anchors: { leo: { x: 99, y: 108, s: .9 }, mia: { x: 161, y: 135, s: .8 } },
@@ -87,7 +87,7 @@ window.MANGA = {
       }
     },
     {
-      no: 2, pov: 'mia', title: { ja: 'コンビニは魔法のお店', en: 'The Magic Convenience Store', zh: '便利商店是魔法商店', ko: '편의점은 마법의 가게', es: 'La tienda mágica de conveniencia', pt: 'A loja de conveniência mágica' },
+      no: 2, pov: 'mia', kicker: { top: "THE MAGIC", main: "CONVENIENCE STORE" }, title: { ja: 'コンビニは魔法のお店', en: 'The Magic Convenience Store', zh: '便利商店是魔法商店', ko: '편의점은 마법의 가게', es: 'La tienda mágica de conveniencia', pt: 'A loja de conveniência mágica' },
       cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // アフィリエイトリンク（鉄道予約）。href を差し替える
       panels: [
         { image: 'images/web/ep2_scene1.jpg', imageSize: [940, 1672], anchors: { leo: { x: 143, y: 287, s: 1.1 }, mia: { x: 238, y: 353, s: 1 } },
@@ -137,7 +137,7 @@ window.MANGA = {
       }
     },
     {
-      no: 3, pov: 'both', title: { ja: 'おじぎのおもてなし', en: 'The Art of the Bow', zh: '鞠躬的待客之道', ko: '인사로 맞이하는 일본', es: 'El arte de la reverencia', pt: 'A arte da reverência' },
+      no: 3, pov: 'both', kicker: { top: "WHY DOES", main: "EVERYONE BOW?" }, title: { ja: 'おじぎのおもてなし', en: 'The Art of the Bow', zh: '鞠躬的待客之道', ko: '인사로 맞이하는 일본', es: 'El arte de la reverencia', pt: 'A arte da reverência' },
       cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // アフィリエイトリンク（グルメ・体験予約）。href を差し替える
       panels: [
         { image: 'images/web/ep3_scene1.jpg', imageSize: [941, 1672], anchors: { okami: { x: 104, y: 378, s: 1 }, leo: { x: 166, y: 427, s: 1 }, mia: { x: 272, y: 459, s: 1 } },
@@ -187,7 +187,7 @@ window.MANGA = {
       }
     },
     {
-      no: 4, pov: 'leo', title: { ja: 'ゴミ箱はどこ？', en: 'Where Are the Trash Cans?', zh: '垃圾桶在哪裡？', ko: '쓰레기통은 어디에?', es: '¿Dónde están las papeleras?', pt: 'Cadê as lixeiras?' },
+      no: 4, pov: 'leo', kicker: { top: "WHERE ARE THE", main: "TRASH CANS?!" }, title: { ja: 'ゴミ箱はどこ？', en: 'Where Are the Trash Cans?', zh: '垃圾桶在哪裡？', ko: '쓰레기통은 어디에?', es: '¿Dónde están las papeleras?', pt: 'Cadê as lixeiras?' },
       cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
       panels: [
         { image: 'images/web/ep4_scene1.jpg', imageSize: [864, 1536], anchors: { leo: { x: 139, y: 252, s: 1 } },
@@ -234,7 +234,7 @@ window.MANGA = {
       }
     },
     {
-      no: 5, pov: 'mia', title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons', zh: '按鈕好多的馬桶', ko: '버튼투성이 화장실', es: 'El inodoro de los botones', pt: 'O vaso cheio de botões' },
+      no: 5, pov: 'mia', kicker: { top: "A TOILET", main: "WITH BUTTONS?!" }, title: { ja: 'ボタンだらけのトイレ', en: 'The Toilet with Buttons', zh: '按鈕好多的馬桶', ko: '버튼투성이 화장실', es: 'El inodoro de los botones', pt: 'O vaso cheio de botões' },
       cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
       panels: [
         { image: 'images/web/ep5_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 255, s: 1 } },
@@ -281,7 +281,7 @@ window.MANGA = {
       }
     },
     {
-      no: 6, pov: 'leo', title: { ja: 'ラーメンは券売機から', en: 'Ramen Starts at a Machine', zh: '拉麵從售票機開始', ko: '라멘은 식권기부터', es: 'El ramen empieza en una máquina', pt: 'O lámen começa na máquina' },
+      no: 6, pov: 'leo', kicker: { top: "RAMEN FROM", main: "A MACHINE?!" }, title: { ja: 'ラーメンは券売機から', en: 'Ramen Starts at a Machine', zh: '拉麵從售票機開始', ko: '라멘은 식권기부터', es: 'El ramen empieza en una máquina', pt: 'O lámen começa na máquina' },
       cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
       panels: [
         { image: 'images/web/ep6_scene1.jpg', imageSize: [864, 1536], anchors: { leo: { x: 53, y: 329, s: 1 }, mia: { x: 144, y: 377, s: 1 }, salaryman: { x: 278, y: 336, s: 1 } },
@@ -321,7 +321,7 @@ window.MANGA = {
       }
     },
     {
-      no: 7, pov: 'mia', title: { ja: '温泉デビュー', en: 'My First Onsen', zh: '溫泉初體驗', ko: '온천 데뷔', es: 'Mi primer onsen', pt: 'Meu primeiro onsen' },
+      no: 7, pov: 'mia', kicker: { top: "MY FIRST", main: "ONSEN!" }, title: { ja: '温泉デビュー', en: 'My First Onsen', zh: '溫泉初體驗', ko: '온천 데뷔', es: 'Mi primer onsen', pt: 'Meu primeiro onsen' },
       cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
       panels: [
         { image: 'images/web/ep7_scene1.jpg', imageSize: [864, 1536], anchors: { okami: { x: 51, y: 317, s: 1 }, leo: { x: 157, y: 361, s: 1 }, mia: { x: 346, y: 356, s: 1 } },
@@ -362,7 +362,7 @@ window.MANGA = {
       }
     },
     {
-      no: 8, pov: 'leo', title: { ja: 'お釣りのトレーとお辞儀', en: 'The Coin Tray and the Bow', zh: '找零托盤與鞠躬', ko: '거스름돈 트레이와 인사', es: 'La bandeja del cambio y la reverencia', pt: 'A bandeja do troco e a reverência' },
+      no: 8, pov: 'leo', kicker: { top: "DON'T HAND", main: "CASH DIRECTLY!" }, title: { ja: 'お釣りのトレーとお辞儀', en: 'The Coin Tray and the Bow', zh: '找零托盤與鞠躬', ko: '거스름돈 트레이와 인사', es: 'La bandeja del cambio y la reverencia', pt: 'A bandeja do troco e a reverência' },
       cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
       panels: [
         { image: 'images/web/ep8_scene1.jpg', imageSize: [864, 1536], anchors: { clerk: { x: 30, y: 335, s: 1 }, mia: { x: 135, y: 370, s: 1 }, leo: { x: 240, y: 330, s: 1 } },
@@ -399,7 +399,7 @@ window.MANGA = {
       }
     },
     {
-      no: 9, pov: 'mia', title: { ja: '財布が戻ってきた', en: 'My Wallet Came Back', zh: '錢包回來了', ko: '지갑이 돌아왔다', es: 'Mi cartera volvió', pt: 'Minha carteira voltou' },
+      no: 9, pov: 'mia', kicker: { top: "MY LOST WALLET", main: "CAME BACK?!" }, title: { ja: '財布が戻ってきた', en: 'My Wallet Came Back', zh: '錢包回來了', ko: '지갑이 돌아왔다', es: 'Mi cartera volvió', pt: 'Minha carteira voltou' },
       cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
       panels: [
         { image: 'images/web/ep9_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 194, y: 227, s: 1 } },
@@ -438,7 +438,7 @@ window.MANGA = {
       }
     },
     {
-      no: 10, pov: 'leo', title: { ja: '神社のお参り', en: 'Visiting a Shrine', zh: '參拜神社', ko: '신사 참배', es: 'Visita a un santuario', pt: 'Visitando um santuário' },
+      no: 10, pov: 'leo', kicker: { top: "HOW TO VISIT", main: "A SHRINE" }, title: { ja: '神社のお参り', en: 'Visiting a Shrine', zh: '參拜神社', ko: '신사 참배', es: 'Visita a un santuario', pt: 'Visitando um santuário' },
       cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
       panels: [
         { image: 'images/web/ep10_scene1.jpg', imageSize: [864, 1536], anchors: { leo: { x: 75, y: 300, s: 1 }, mia: { x: 215, y: 350, s: 1 } },
@@ -477,7 +477,7 @@ window.MANGA = {
       }
     },
     {
-      no: 11, pov: 'mia', title: { ja: '回転寿司', en: 'Conveyor-Belt Sushi', zh: '迴轉壽司', ko: '회전초밥', es: 'Sushi en cinta', pt: 'Sushi de esteira' },
+      no: 11, pov: 'mia', kicker: { top: "SUSHI THAT", main: "RIDES A TRAIN?!" }, title: { ja: '回転寿司', en: 'Conveyor-Belt Sushi', zh: '迴轉壽司', ko: '회전초밥', es: 'Sushi en cinta', pt: 'Sushi de esteira' },
       cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
       panels: [
         { image: 'images/web/ep11_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 100, y: 330, s: 1 }, leo: { x: 215, y: 320, s: 1 }, chef: { x: 370, y: 240, s: 1 } },
@@ -517,7 +517,7 @@ window.MANGA = {
       }
     },
     {
-      no: 12, pov: 'leo', title: { ja: '日本のクリスマス', en: 'Christmas in Japan', zh: '日本的聖誕節', ko: '일본의 크리스마스', es: 'Navidad en Japón', pt: 'Natal no Japão' },
+      no: 12, pov: 'leo', kicker: { top: "FRIED CHICKEN", main: "FOR CHRISTMAS?!" }, title: { ja: '日本のクリスマス', en: 'Christmas in Japan', zh: '日本的聖誕節', ko: '일본의 크리스마스', es: 'Navidad en Japón', pt: 'Natal no Japão' },
       cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
       panels: [
         { image: 'images/web/ep12_scene1.jpg', imageSize: [864, 1536], anchors: { leo: { x: 85, y: 280, s: 1 }, mia: { x: 240, y: 345, s: 1 } },
@@ -556,7 +556,7 @@ window.MANGA = {
       }
     },
     {
-      no: 13, pov: 'mia', title: { ja: '新幹線と駅弁', en: 'Bullet Train and Ekiben', zh: '新幹線與鐵路便當', ko: '신칸센과 에키벤', es: 'Tren bala y ekiben', pt: 'Trem-bala e ekiben' },
+      no: 13, pov: 'mia', kicker: { top: "BULLET TRAIN", main: "& EKIBEN!" }, title: { ja: '新幹線と駅弁', en: 'Bullet Train and Ekiben', zh: '新幹線與鐵路便當', ko: '신칸센과 에키벤', es: 'Tren bala y ekiben', pt: 'Trem-bala e ekiben' },
       cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
       panels: [
         { image: 'images/web/ep13_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 30, y: 335, s: 1 }, leo: { x: 180, y: 340, s: 1 } },
@@ -595,7 +595,7 @@ window.MANGA = {
       }
     },
     {
-      no: 14, pov: 'leo', title: { ja: '100円ショップの魔法', en: 'The Magic of 100-Yen Shops', zh: '百元商店的魔法', ko: '100엔숍의 마법', es: 'La magia de las tiendas de 100 yenes', pt: 'A magia das lojas de 100 ienes' },
+      no: 14, pov: 'leo', kicker: { top: "EVERYTHING IS", main: "100 YEN?!" }, title: { ja: '100円ショップの魔法', en: 'The Magic of 100-Yen Shops', zh: '百元商店的魔法', ko: '100엔숍의 마법', es: 'La magia de las tiendas de 100 yenes', pt: 'A magia das lojas de 100 ienes' },
       cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
       panels: [
         { image: 'images/web/ep14_scene1.jpg', imageSize: [864, 1536], anchors: { leo: { x: 85, y: 345, s: 1 }, mia: { x: 225, y: 385, s: 1 } },
@@ -634,7 +634,7 @@ window.MANGA = {
       }
     },
     {
-      no: 15, pov: 'mia', title: { ja: 'はじめてのカプセルホテル', en: 'My First Capsule Hotel', zh: '第一次住膠囊旅館', ko: '첫 캡슐호텔', es: 'Mi primer hotel cápsula', pt: 'Meu primeiro hotel-cápsula' },
+      no: 15, pov: 'mia', kicker: { top: "SLEEPING IN", main: "A CAPSULE?!" }, title: { ja: 'はじめてのカプセルホテル', en: 'My First Capsule Hotel', zh: '第一次住膠囊旅館', ko: '첫 캡슐호텔', es: 'Mi primer hotel cápsula', pt: 'Meu primeiro hotel-cápsula' },
       cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
       panels: [
         { image: 'images/web/ep15_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 80, y: 360, s: 1 }, leo: { x: 205, y: 315, s: 1 }, clerk: { x: 280, y: 320, s: 1 } },
@@ -672,12 +672,266 @@ window.MANGA = {
         es: ['Hombres y mujeres suelen dormir en plantas separadas.', 'Las cápsulas no tienen cerradura: guarda lo valioso en la taquilla.', 'Silencio por la noche y el móvil en modo silencio.'],
         pt: ['Homens e mulheres costumam ficar em andares separados.', 'As cápsulas não têm tranca: guarde objetos de valor no armário.', 'Silêncio à noite e celular no silencioso.']
       }
+    },
+    {
+      no: 16, pov: 'both', kicker: { top: "KYOTO TRIP!", main: "1,000 RED GATES?!" }, title: { ja: '京都① 伏見稲荷の千本鳥居', en: "Kyoto ①: Fushimi Inari's Thousand Gates", zh: '京都①：伏見稻荷的千本鳥居', ko: '교토①: 후시미 이나리의 센본 도리이', es: 'Kioto ①: Las mil puertas de Fushimi Inari', pt: 'Quioto ①: Os mil portões de Fushimi Inari' },
+      cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep16_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 100, y: 310, s: 1 }, leo: { x: 205, y: 300, s: 1 } },
+          scene: 'street', cap: { ja: '京都旅行スタート！まずは伏見稲荷大社へ。', en: 'Our Kyoto trip begins! First stop: Fushimi Inari Taisha.', zh: '京都之旅開始！第一站是伏見稻荷大社。', ko: '교토 여행 시작! 첫 번째는 후시미 이나리 신사.', es: '¡Empieza el viaje a Kioto! Primera parada: Fushimi Inari Taisha.', pt: 'Começa a viagem a Quioto! Primeira parada: Fushimi Inari Taisha.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'wave', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: '京都に来たよ！', en: "We're in Kyoto!", zh: '我們來到京都了！', ko: '교토에 왔어!', es: '¡Estamos en Kioto!', pt: 'Chegamos a Quioto!', type: 'shout', pos: { x: 110, y: 220 } }] },
+        { image: 'images/web/ep16_scene2.jpg', imageSize: [864, 1536], anchors: { leo: { x: 75, y: 290, s: 1 }, mia: { x: 300, y: 295, s: 1 } },
+          scene: 'street', cap: { ja: 'キツネは稲荷の神様のお使い。カギをくわえた像も。', en: 'Foxes are messengers of Inari, the god of rice. Some hold a key in their mouth.', zh: '狐狸是稻荷神的使者，有的嘴裡還叼著鑰匙。', ko: '여우는 쌀의 신 이나리의 심부름꾼. 열쇠를 문 여우도 있다.', es: 'Los zorros son mensajeros de Inari, dios del arroz. Algunos llevan una llave en la boca.', pt: 'As raposas são mensageiras de Inari, o deus do arroz. Algumas têm uma chave na boca.' },
+          chars: [{ id: 'leo', at: 'L', pose: 'point', face: 'surprised' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'キツネがいっぱい！', en: 'Foxes everywhere!', zh: '好多狐狸！', ko: '여우가 잔뜩!', es: '¡Zorros por todas partes!', pt: 'Raposas por todo lado!', pos: { x: 110, y: 205 } }] },
+        { image: 'images/web/ep16_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 310, s: 1 }, leo: { x: 210, y: 285, s: 1 } },
+          scene: 'street', cap: { ja: '千本鳥居。何千もの鳥居が朱色のトンネルに。', en: 'Senbon Torii: thousands of gates make a vermilion tunnel.', zh: '千本鳥居。數千座鳥居連成朱紅色的隧道。', ko: '센본 도리이. 수천 개의 도리이가 주홍빛 터널을 이룬다.', es: 'Senbon Torii: miles de puertas forman un túnel bermellón.', pt: 'Senbon Torii: milhares de portões formam um túnel vermelho.' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved' }, { id: 'leo', at: 'R', pose: 'point', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'トンネルみたい！', en: "It's like a tunnel!", zh: '好像隧道！', ko: '터널 같아!', es: '¡Parece un túnel!', pt: 'Parece um túnel!', pos: { x: 110, y: 230 } }] },
+        { image: 'images/web/ep16_scene4.jpg', imageSize: [864, 1536], anchors: { mia: { x: 90, y: 305, s: 1 }, leo: { x: 200, y: 290, s: 1 } },
+          scene: 'street', cap: { ja: '鳥居は人や会社が奉納したもの。裏に名前が書いてある。', en: 'Each gate was donated by a person or company. Their names are on the back.', zh: '每座鳥居都是個人或公司捐獻的，背面寫著名字。', ko: '도리이는 사람이나 회사가 봉납한 것. 뒷면에 이름이 적혀 있다.', es: 'Cada puerta fue donada por una persona o empresa. Sus nombres están detrás.', pt: 'Cada portão foi doado por uma pessoa ou empresa. Os nomes estão atrás.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'leo', ja: '全部に名前が…!?', en: 'Names on every one?!', zh: '每座都有名字…!?', ko: '전부 이름이…!?', es: '¿¡Nombres en todas!?', pt: 'Nomes em todos?!', type: 'shout', pos: { x: 220, y: 210 } }] },
+        { image: 'images/web/ep16_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 115, y: 265, s: 1 }, leo: { x: 210, y: 340, s: 1 } },
+          scene: 'street', cap: { ja: '山を登ると、四ツ辻から京都の街が見える。', en: 'Climb the mountain, and you can see Kyoto from Yotsutsuji.', zh: '爬上山，在四辻可以眺望京都市區。', ko: '산을 오르면 요쓰쓰지에서 교토 시내가 보인다.', es: 'Al subir la montaña, ves Kioto desde Yotsutsuji.', pt: 'Subindo a montanha, dá para ver Quioto de Yotsutsuji.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'point', face: 'happy' }, { id: 'leo', at: 'R', face: 'tired' }],
+          lines: [{ who: 'mia', ja: 'いい景色！', en: 'What a view!', zh: '風景好美！', ko: '경치 좋다!', es: '¡Qué vista!', pt: 'Que vista!', pos: { x: 110, y: 180 } },
+            { who: 'leo', ja: 'も、もう限界…', en: "I-I'm done...", zh: '我、我不行了…', ko: '이, 이제 한계…', es: 'Ya no puedo más...', pt: 'Não aguento mais...', pos: { x: 290, y: 265 } }] },
+        { image: 'images/web/ep16_scene6.jpg', imageSize: [864, 1536], anchors: { leo: { x: 95, y: 280, s: 1 }, mia: { x: 290, y: 315, s: 1 } },
+          scene: 'ramen', cap: { ja: 'しめはキツネの好物、油揚げのきつねうどん。', en: "To finish: kitsune udon, topped with fried tofu, the foxes' favorite.", zh: '最後來碗狐狸最愛的油豆腐烏龍麵。', ko: '마무리는 여우가 좋아하는 유부를 올린 기쓰네 우동.', es: 'Para terminar: kitsune udon con tofu frito, el favorito de los zorros.', pt: 'Para fechar: kitsune udon com tofu frito, o favorito das raposas.' },
+          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: '生き返る〜！', en: 'I feel alive again!', zh: '活過來了～！', ko: '살아났다~!', es: '¡Reviví!', pt: 'Revivi!', pos: { x: 110, y: 190 } },
+            { who: 'mia', ja: '明日は着物だよ！', en: 'Tomorrow: kimono!', zh: '明天穿和服喔！', ko: '내일은 기모노야!', es: '¡Mañana, kimono!', pt: 'Amanhã, quimono!', pos: { x: 295, y: 240 } }] }
+      ],
+      tip: {
+        ja: ['朝早く行くと人が少ない。境内は24時間・無料で参拝できる。', '頂上までは往復2〜3時間。景色のいい四ツ辻までなら片道30〜40分ほど。', 'JR京都駅から奈良線で約5分。稲荷駅の目の前。'],
+        en: ['Go early in the morning to avoid crowds. The shrine is open 24 hours and free.', 'The summit round trip takes 2–3 hours. Yotsutsuji, with its view, is about 30–40 minutes up.', 'From JR Kyoto Station, the Nara Line takes about 5 minutes to Inari Station, right in front of the shrine.'],
+        zh: ['早上去人比較少。神社24小時開放，免費參拜。', '登頂來回約2～3小時。景色很棒的四辻，單程約30～40分鐘。', '從JR京都站搭奈良線約5分鐘，稻荷站就在神社前面。'],
+        ko: ['아침 일찍 가면 사람이 적다. 24시간 무료로 참배할 수 있다.', '정상까지 왕복 2~3시간. 전망 좋은 요쓰쓰지까지는 편도 30~40분 정도.', 'JR 교토역에서 나라선으로 약 5분. 이나리역 바로 앞.'],
+        es: ['Ve temprano para evitar multitudes. El santuario abre 24 horas y es gratis.', 'Ida y vuelta a la cima: 2–3 horas. Yotsutsuji, con su mirador, está a unos 30–40 minutos.', 'Desde la estación JR de Kioto, la línea Nara tarda unos 5 minutos hasta Inari, frente al santuario.'],
+        pt: ['Vá cedo para evitar multidões. O santuário abre 24 horas e é grátis.', 'Ida e volta ao topo: 2–3 horas. Yotsutsuji, com o mirante, fica a uns 30–40 minutos.', 'Da estação JR de Quioto, a linha Nara leva uns 5 minutos até Inari, em frente ao santuário.']
+      }
+    },
+    {
+      no: 17, pov: 'both', kicker: { top: "KYOTO TRIP!", main: "KIMONO DAY!" }, title: { ja: '京都② 着物で清水寺', en: 'Kyoto ②: Kiyomizu-dera in Kimono', zh: '京都②：穿和服逛清水寺', ko: '교토②: 기모노 입고 기요미즈데라', es: 'Kioto ②: Kiyomizu-dera en kimono', pt: 'Quioto ②: Kiyomizu-dera de quimono' },
+      cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep17_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 70, y: 315, s: 1 }, leo: { x: 200, y: 300, s: 1 } },
+          scene: 'street', cap: { ja: '京都2日目は着物レンタルに挑戦！', en: 'Kyoto day 2: we tried kimono rental!', zh: '京都第二天，挑戰租和服！', ko: '교토 둘째 날은 기모노 대여에 도전!', es: 'Día 2 en Kioto: ¡probamos el alquiler de kimonos!', pt: 'Dia 2 em Quioto: alugamos quimonos!' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'confused' }],
+          lines: [{ who: 'mia', ja: 'どれにしよう〜！', en: 'Which one should I pick?!', zh: '要選哪件呢～！', ko: '뭘 고르지~!', es: '¿¡Cuál elijo!?', pt: 'Qual eu escolho?!', pos: { x: 100, y: 205 } },
+            { who: 'leo', ja: '多すぎる…', en: 'Too many...', zh: '太多了…', ko: '너무 많아…', es: 'Demasiados...', pt: 'Tem demais...', type: 'think', pos: { x: 285, y: 240 } }] },
+        { image: 'images/web/ep17_scene2.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 295, s: 1 }, clerk: { x: 195, y: 290, s: 1 }, leo: { x: 285, y: 270, s: 1 } },
+          scene: 'street', cap: { ja: '着付けはお店の人がしてくれる。', en: 'The staff dress you, so no need to know how.', zh: '店員會幫忙穿，不用自己會。', ko: '입는 건 가게 직원이 도와준다.', es: 'El personal te viste, no hace falta saber cómo.', pt: 'A equipe veste você, não precisa saber como.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'embarrassed' }],
+          lines: [{ who: 'mia', ja: 'かわいい！', en: 'So cute!', zh: '好可愛！', ko: '귀여워!', es: '¡Qué lindo!', pt: 'Que fofo!', type: 'shout', pos: { x: 95, y: 190 } },
+            { who: 'leo', ja: 'に、似合う…?', en: 'D-does it suit me?', zh: '適、適合我嗎…?', ko: '어, 어울려…?', es: '¿Me queda bien...?', pt: 'F-ficou bom?', pos: { x: 300, y: 215 } }] },
+        { image: 'images/web/ep17_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 295, s: 1 }, leo: { x: 230, y: 330, s: 1 } },
+          scene: 'street', cap: { ja: '三年坂。ここで転ぶと3年以内に不幸が…という言い伝えも！', en: 'Sannenzaka: legend says if you fall here, bad luck follows for three years!', zh: '三年坂。傳說在這裡跌倒，三年內會倒楣！', ko: '산넨자카. 여기서 넘어지면 3년 안에 불행이 온다는 전설도!', es: 'Sannenzaka: dice la leyenda que si te caes aquí, tendrás mala suerte tres años.', pt: 'Sannenzaka: a lenda diz que quem cai aqui tem azar por três anos!' },
+          chars: [{ id: 'mia', at: 'L', face: 'surprised' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: '気をつけて！', en: 'Careful!', zh: '小心！', ko: '조심해!', es: '¡Cuidado!', pt: 'Cuidado!', type: 'shout', pos: { x: 100, y: 210 } },
+            { who: 'leo', ja: 'うわっ！', en: 'Whoa!', zh: '哇！', ko: '으악!', es: '¡Uy!', pt: 'Opa!', type: 'shout', pos: { x: 275, y: 255 } }] },
+        { image: 'images/web/ep17_scene4.jpg', imageSize: [864, 1536], anchors: { mia: { x: 130, y: 270, s: 1 }, leo: { x: 245, y: 320, s: 1 } },
+          scene: 'street', cap: { ja: '清水の舞台。高さは約13メートル！', en: 'The stage of Kiyomizu: about 13 meters high!', zh: '清水舞台，高約13公尺！', ko: '기요미즈 무대. 높이는 약 13미터!', es: 'El escenario de Kiyomizu: ¡unos 13 metros de altura!', pt: 'O palco de Kiyomizu: cerca de 13 metros de altura!' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: 'きれい…', en: 'Beautiful...', zh: '好美…', ko: '예쁘다…', es: 'Precioso...', pt: 'Que lindo...', pos: { x: 105, y: 180 } },
+            { who: 'leo', ja: '高っ！', en: 'So high!', zh: '好高！', ko: '높아!', es: '¡Qué alto!', pt: 'Que alto!', type: 'shout', pos: { x: 290, y: 245 } }] },
+        { image: 'images/web/ep17_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 85, y: 320, s: 1 }, leo: { x: 235, y: 280, s: 1 } },
+          scene: 'street', cap: { ja: '「清水の舞台から飛び降りる」は、思い切って決断するという意味のことわざ。', en: '"Jumping off the stage of Kiyomizu" is a saying that means making a bold decision.', zh: '「從清水舞台跳下去」是諺語，意思是下定決心。', ko: '"기요미즈 무대에서 뛰어내리다"는 큰 결심을 한다는 뜻의 속담.', es: '"Saltar del escenario de Kiyomizu" es un dicho: tomar una decisión audaz.', pt: '"Pular do palco de Kiyomizu" é um ditado: tomar uma decisão ousada.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'point', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'leo', ja: '飛び降りるの!?', en: 'We have to jump?!', zh: '要跳下去嗎!?', ko: '뛰어내려야 해!?', es: '¿¡Hay que saltar!?', pt: 'Tem que pular?!', type: 'shout', pos: { x: 250, y: 195 } }] },
+        { image: 'images/web/ep17_scene6.jpg', imageSize: [864, 1536], anchors: { leo: { x: 160, y: 265, s: 1 }, mia: { x: 290, y: 295, s: 1 } },
+          scene: 'street', cap: { ja: '休憩は抹茶パフェ。着物で歩くと気分も京都！', en: 'Break time: matcha parfait. Walking in kimono feels so Kyoto!', zh: '休息時間來份抹茶聖代。穿和服散步超有京都感！', ko: '휴식은 말차 파르페. 기모노 입고 걸으니 완전 교토 기분!', es: 'Descanso: parfait de matcha. ¡Pasear en kimono se siente muy Kioto!', pt: 'Pausa: parfait de matcha. Passear de quimono é muito Quioto!' },
+          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'うまっ！', en: 'Yum!', zh: '好好吃！', ko: '맛있어!', es: '¡Qué rico!', pt: 'Delícia!', pos: { x: 110, y: 180 } },
+            { who: 'mia', ja: '明日は嵐山！', en: 'Tomorrow: Arashiyama!', zh: '明天去嵐山！', ko: '내일은 아라시야마!', es: '¡Mañana, Arashiyama!', pt: 'Amanhã, Arashiyama!', pos: { x: 290, y: 215 } }] }
+      ],
+      tip: {
+        ja: ['着物レンタルは予約がおすすめ。着付けはお店でしてくれる。', '着物では歩幅を小さく。坂道や階段はゆっくり。', '清水寺は朝早くから開いていて、朝は人が少ない。'],
+        en: ['Book kimono rental in advance. The staff will dress you.', 'Take small steps in kimono, and go slowly on slopes and stairs.', 'Kiyomizu-dera opens early in the morning, when it is less crowded.'],
+        zh: ['和服租借建議先預約，店員會幫忙穿。', '穿和服時步伐要小，坡道和樓梯慢慢走。', '清水寺一早就開門，早上人比較少。'],
+        ko: ['기모노 대여는 예약 추천. 입는 건 가게에서 도와준다.', '기모노를 입으면 보폭은 작게. 언덕과 계단은 천천히.', '기요미즈데라는 아침 일찍 열고, 아침엔 사람이 적다.'],
+        es: ['Reserva el alquiler de kimono. El personal te viste.', 'Con kimono, da pasos cortos y ve despacio en cuestas y escaleras.', 'Kiyomizu-dera abre temprano; por la mañana hay menos gente.'],
+        pt: ['Reserve o aluguel de quimono. A equipe veste você.', 'De quimono, dê passos curtos e vá devagar em ladeiras e escadas.', 'O Kiyomizu-dera abre cedo; de manhã há menos gente.']
+      }
+    },
+    {
+      no: 18, pov: 'both', kicker: { top: "KYOTO TRIP!", main: "BAMBOO FOREST!" }, title: { ja: '京都③ 嵐山で竹林さんぽ', en: 'Kyoto ③: A Walk in Arashiyama', zh: '京都③：嵐山竹林散步', ko: '교토③: 아라시야마 대나무 숲 산책', es: 'Kioto ③: Paseo por Arashiyama', pt: 'Quioto ③: Passeio em Arashiyama' },
+      cta: { label: 'Get Japan eSIM & Wi-Fi', href: '#', color: 'green', icon: 'wifi' },  // 第1話と同じ（eSIM・Wi-Fi）。href を差し替える
+      panels: [
+        { image: 'images/web/ep18_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 60, y: 330, s: 1 }, leo: { x: 240, y: 300, s: 1 } },
+          scene: 'street', cap: { ja: '3日目は嵐山へ。渡月橋と紅葉の山！', en: 'Day 3: Arashiyama! Togetsukyo Bridge and autumn mountains.', zh: '第三天去嵐山。渡月橋和紅葉山景！', ko: '셋째 날은 아라시야마. 도게쓰쿄 다리와 단풍 산!', es: 'Día 3: ¡Arashiyama! El puente Togetsukyo y montañas otoñales.', pt: 'Dia 3: Arashiyama! A ponte Togetsukyo e montanhas de outono.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'handsup', face: 'happy' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '空気がおいしい！', en: 'The air is so fresh!', zh: '空氣好清新！', ko: '공기가 맛있어!', es: '¡Qué aire tan puro!', pt: 'Que ar puro!', pos: { x: 110, y: 240 } }] },
+        { image: 'images/web/ep18_scene2.jpg', imageSize: [864, 1536], anchors: { mia: { x: 130, y: 320, s: 1 }, leo: { x: 250, y: 305, s: 1 } },
+          scene: 'street', cap: { ja: '竹林の小道。風が吹くと、竹がサラサラ鳴る。', en: 'The bamboo grove path. When the wind blows, the bamboo rustles.', zh: '竹林小徑。風一吹，竹子沙沙作響。', ko: '대나무 숲길. 바람이 불면 대나무가 사각사각 울린다.', es: 'El sendero del bosque de bambú. Con el viento, el bambú susurra.', pt: 'A trilha do bambuzal. Com o vento, o bambu sussurra.' },
+          chars: [{ id: 'mia', at: 'L', face: 'calm' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: 'いい音…', en: 'Listen...', zh: '好好聽…', ko: '좋은 소리…', es: 'Escucha...', pt: 'Escuta...', type: 'whisper', pos: { x: 110, y: 230 } },
+            { who: 'leo', ja: '高っ！', en: 'So tall!', zh: '好高！', ko: '높다!', es: '¡Qué alto!', pt: 'Que alto!', pos: { x: 280, y: 250 } }] },
+        { image: 'images/web/ep18_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 145, y: 285, s: 1 }, leo: { x: 235, y: 270, s: 1 } },
+          scene: 'street', cap: { ja: '人力車で観光。車夫さんが名所を案内してくれる。', en: 'Sightseeing by rickshaw. The puller guides you to famous spots.', zh: '搭人力車觀光，車夫會帶你逛名勝。', ko: '인력거로 관광. 인력거꾼이 명소를 안내해 준다.', es: 'Turismo en rickshaw: el conductor te guía por los lugares famosos.', pt: 'Passeio de riquixá: o condutor guia você pelos pontos famosos.' },
+          chars: [{ id: 'mia', at: 'L', pose: 'wave', face: 'happy' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '速い速い！', en: 'So fast!', zh: '好快好快！', ko: '빠르다 빨라!', es: '¡Qué rápido!', pt: 'Que rápido!', type: 'shout', pos: { x: 120, y: 190 } }] },
+        { image: 'images/web/ep18_scene4.jpg', imageSize: [864, 1536], anchors: { mia: { x: 110, y: 265, s: 1 }, leo: { x: 245, y: 250, s: 1 } },
+          scene: 'street', cap: { ja: '抹茶ソフト！食べ歩きOKか確認して、ダメならお店の前で。', en: 'Matcha soft serve! Check if eating while walking is OK; if not, eat at the shop.', zh: '抹茶霜淇淋！先確認能不能邊走邊吃，不行就在店前吃完。', ko: '말차 소프트! 먹으며 걸어도 되는지 확인하고, 안 되면 가게 앞에서.', es: '¡Helado de matcha! Pregunta si se puede comer caminando; si no, cómelo en la tienda.', pt: 'Sorvete de matcha! Veja se pode comer andando; se não, coma na loja.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: '濃い〜！', en: 'So rich!', zh: '好濃～！', ko: '진하다~!', es: '¡Qué intenso!', pt: 'Que intenso!', pos: { x: 100, y: 170 } },
+            { who: 'leo', ja: '溶けてる！', en: "It's melting!", zh: '融化了！', ko: '녹는다!', es: '¡Se derrite!', pt: 'Tá derretendo!', type: 'shout', pos: { x: 280, y: 200 } }] },
+        { image: 'images/web/ep18_scene5.jpg', imageSize: [864, 1536], anchors: { leo: { x: 95, y: 300, s: 1 }, mia: { x: 300, y: 340, s: 1 } },
+          scene: 'street', cap: { ja: '貸しボートで川遊び。まっすぐ進むのは意外と難しい…', en: 'Rowing on the river. Going straight is harder than it looks...', zh: '租小船遊河…要直直划其實很難。', ko: '보트를 빌려 강놀이. 똑바로 가는 건 의외로 어렵다…', es: 'Remando en el río. Ir recto es más difícil de lo que parece...', pt: 'Remando no rio. Ir reto é mais difícil do que parece...' },
+          chars: [{ id: 'leo', at: 'L', face: 'confused' }, { id: 'mia', at: 'R', face: 'calm' }],
+          lines: [{ who: 'leo', ja: 'なんで回るの!?', en: 'Why are we spinning?!', zh: '為什麼一直轉!?', ko: '왜 빙빙 돌아!?', es: '¿¡Por qué giramos!?', pt: 'Por que estamos girando?!', type: 'shout', pos: { x: 110, y: 215 } },
+            { who: 'mia', ja: 'のんびり〜', en: 'So relaxing~', zh: '好悠閒～', ko: '여유롭다~', es: 'Qué relax~', pt: 'Que relaxante~', pos: { x: 300, y: 265 } }] },
+        { image: 'images/web/ep18_scene6.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 370, s: 1 }, leo: { x: 270, y: 345, s: 1 } },
+          scene: 'street', cap: { ja: '夕焼けの渡月橋。嵐山は一日いても飽きない。', en: 'Togetsukyo at sunset. You could spend all day in Arashiyama.', zh: '夕陽下的渡月橋。嵐山待一整天都不膩。', ko: '노을 진 도게쓰쿄. 아라시야마는 하루 종일 있어도 질리지 않는다.', es: 'Togetsukyo al atardecer. Podrías pasar todo el día en Arashiyama.', pt: 'Togetsukyo ao pôr do sol. Dá para passar o dia todo em Arashiyama.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'いい一日だったね', en: 'What a great day!', zh: '真是美好的一天！', ko: '좋은 하루였어!', es: '¡Qué gran día!', pt: 'Que dia incrível!', pos: { x: 105, y: 225 } },
+            { who: 'leo', ja: '明日は夜の祇園！', en: 'Tomorrow: Gion at night!', zh: '明天去夜晚的祇園！', ko: '내일은 밤의 기온!', es: '¡Mañana, Gion de noche!', pt: 'Amanhã, Gion à noite!', pos: { x: 280, y: 300 } }] }
+      ],
+      tip: {
+        ja: ['竹林は朝早くが静かでおすすめ。', '人力車は料金やコースを先に確認しよう。', '食べ歩き禁止の場所もある。お店の前で食べるのが安心。'],
+        en: ['Visit the bamboo grove early in the morning when it is quiet.', 'For rickshaw rides, check the price and route first.', 'Some areas ban eating while walking. Eating at the shop is safest.'],
+        zh: ['竹林一大早最安靜，推薦早上去。', '搭人力車前先確認價格和路線。', '有些地方禁止邊走邊吃，在店前吃最安心。'],
+        ko: ['대나무 숲은 아침 일찍이 조용해서 추천.', '인력거는 요금과 코스를 먼저 확인하자.', '먹으면서 걷기가 금지된 곳도 있다. 가게 앞에서 먹는 게 안심.'],
+        es: ['Visita el bosque de bambú temprano, cuando está tranquilo.', 'En el rickshaw, consulta antes el precio y la ruta.', 'En algunas zonas no se puede comer caminando. Lo más seguro es comer en la tienda.'],
+        pt: ['Visite o bambuzal cedo, quando está tranquilo.', 'No riquixá, confira antes o preço e o trajeto.', 'Em algumas áreas é proibido comer andando. O mais seguro é comer na loja.']
+      }
+    },
+    {
+      no: 19, pov: 'both', kicker: { top: "KYOTO TRIP!", main: "GION AT NIGHT!" }, title: { ja: '京都④ 夜の祇園', en: 'Kyoto ④: Gion at Night', zh: '京都④：夜晚的祇園', ko: '교토④: 밤의 기온', es: 'Kioto ④: Gion de noche', pt: 'Quioto ④: Gion à noite' },
+      cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep19_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 95, y: 355, s: 1 }, leo: { x: 205, y: 320, s: 1 } },
+          scene: 'street', cap: { ja: '京都最後の夜は祇園へ。花見小路に灯りがともる。', en: 'Our last night in Kyoto: Gion. Lanterns light up Hanamikoji Street.', zh: '京都最後一晚來到祇園，花見小路點起燈籠。', ko: '교토의 마지막 밤은 기온으로. 하나미코지에 불이 켜진다.', es: 'Última noche en Kioto: Gion. Los faroles iluminan Hanamikoji.', pt: 'Última noite em Quioto: Gion. As lanternas iluminam Hanamikoji.' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '昔の日本みたい…', en: "It's like old Japan...", zh: '好像古時候的日本…', ko: '옛날 일본 같아…', es: 'Parece el Japón antiguo...', pt: 'Parece o Japão antigo...', pos: { x: 110, y: 265 } }] },
+        { image: 'images/web/ep19_scene2.jpg', imageSize: [864, 1536], anchors: { mia: { x: 100, y: 280, s: 1 }, leo: { x: 240, y: 240, s: 1 } },
+          scene: 'street', cap: { ja: '舞妓さんを追いかけたり、勝手に撮ったりしない。撮影禁止の私道もある。', en: "Don't chase or photograph maiko without permission. Some private alleys ban photos.", zh: '不要追著舞妓跑或擅自拍照。有些私人巷道禁止拍照。', ko: '마이코를 쫓아가거나 함부로 찍지 말자. 촬영 금지인 사유지 골목도 있다.', es: 'No persigas ni fotografíes a las maiko sin permiso. Algunos callejones privados prohíben las fotos.', pt: 'Não persiga nem fotografe maiko sem permissão. Alguns becos privados proíbem fotos.' },
+          chars: [{ id: 'mia', at: 'L', face: 'normal' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: '撮っちゃダメ！', en: 'No photos!', zh: '不可以拍！', ko: '찍으면 안 돼!', es: '¡Sin fotos!', pt: 'Sem fotos!', pos: { x: 100, y: 190 } }] },
+        { image: 'images/web/ep19_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 135, y: 330, s: 1 }, leo: { x: 270, y: 315, s: 1 } },
+          scene: 'street', cap: { ja: '八坂神社。夜の提灯がとても幻想的。', en: 'Yasaka Shrine. The lanterns at night are magical.', zh: '八坂神社。夜晚的燈籠好夢幻。', ko: '야사카 신사. 밤의 등불이 정말 환상적이다.', es: 'Santuario Yasaka. Los faroles de noche son mágicos.', pt: 'Santuário Yasaka. As lanternas à noite são mágicas.' },
+          chars: [{ id: 'mia', at: 'L', face: 'moved' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '幻想的…！', en: 'Magical...!', zh: '好夢幻…！', ko: '환상적이야…!', es: '¡Mágico...!', pt: 'Mágico...!', pos: { x: 130, y: 240 } }] },
+        { image: 'images/web/ep19_scene4.jpg', imageSize: [864, 1536], anchors: { leo: { x: 110, y: 320, s: 1 }, mia: { x: 300, y: 330, s: 1 } },
+          scene: 'ramen', cap: { ja: '夕食は京都のおばんざい。季節の野菜のやさしい味。', en: "Dinner: Kyoto's obanzai, gentle home-style dishes with seasonal vegetables.", zh: '晚餐是京都家常菜，季節蔬菜的溫和味道。', ko: '저녁은 교토 가정식 오반자이. 제철 채소의 순한 맛.', es: 'Cena: obanzai de Kioto, platos caseros suaves con verduras de temporada.', pt: 'Jantar: obanzai de Quioto, pratos caseiros suaves com legumes da estação.' },
+          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'やさしい味！', en: 'So gentle and tasty!', zh: '味道好溫和！', ko: '맛이 순해!', es: '¡Qué sabor tan suave!', pt: 'Que sabor suave!', pos: { x: 100, y: 195 } },
+            { who: 'mia', ja: '器もきれい', en: 'Even the plates are pretty.', zh: '連盤子都好美', ko: '그릇도 예뻐', es: 'Hasta los platos son bonitos.', pt: 'Até os pratos são lindos.', pos: { x: 295, y: 268 } }] },
+        { image: 'images/web/ep19_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 85, y: 335, s: 1 }, leo: { x: 220, y: 300, s: 1 } },
+          scene: 'street', cap: { ja: '鴨川のカップルは、なぜか等間隔に座る。「鴨川等間隔の法則」！', en: 'Couples by the Kamo River sit at equal distances: the "Kamogawa spacing rule"!', zh: '鴨川邊的情侶總是等距離坐著，「鴨川等距法則」！', ko: '가모강의 커플들은 왠지 같은 간격으로 앉는다. "가모강 등간격의 법칙"!', es: 'Las parejas junto al río Kamo se sientan a igual distancia: ¡la "regla de Kamogawa"!', pt: 'Os casais à beira do rio Kamo sentam à mesma distância: a "regra de Kamogawa"!' },
+          chars: [{ id: 'mia', at: 'L', pose: 'point', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: '本当に等間隔！', en: 'Perfectly spaced!', zh: '真的等距離！', ko: '진짜 같은 간격!', es: '¡Espacio perfecto!', pt: 'Espaço perfeito!', pos: { x: 95, y: 235 } },
+            { who: 'leo', ja: '測ったみたい…', en: 'Like they measured it...', zh: '好像量過一樣…', ko: '잰 것 같아…', es: 'Como si lo midieran...', pt: 'Parece medido...', pos: { x: 285, y: 255 } }] },
+        { image: 'images/web/ep19_scene6.jpg', imageSize: [864, 1536], anchors: { leo: { x: 130, y: 345, s: 1 }, mia: { x: 270, y: 345, s: 1 } },
+          scene: 'room', cap: { ja: '京都の4日間、最高だった。次はどこへ行こう？', en: 'Four amazing days in Kyoto. Where should we go next?', zh: '京都四天太棒了。下一站要去哪裡呢？', ko: '교토에서의 4일, 최고였다. 다음엔 어디로 갈까?', es: 'Cuatro días increíbles en Kioto. ¿Adónde vamos ahora?', pt: 'Quatro dias incríveis em Quioto. Para onde vamos agora?' },
+          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: '楽しかった〜', en: 'That was so fun~', zh: '好好玩～', ko: '즐거웠다~', es: '¡Fue genial~!', pt: 'Foi muito divertido~', pos: { x: 110, y: 225 } },
+            { who: 'mia', ja: '次は大阪だ！', en: 'Next: Osaka!', zh: '下一站大阪！', ko: '다음은 오사카!', es: '¡Próximo: Osaka!', pt: 'Próximo: Osaka!', type: 'shout', pos: { x: 290, y: 285 } }] }
+      ],
+      tip: {
+        ja: ['舞妓さんを追いかけたり勝手に撮るのはマナー違反。撮影禁止の私道もある。', '八坂神社は24時間お参りでき、夜の提灯もきれい。', '夜の鴨川の河原は散歩にぴったり。'],
+        en: ["Chasing or photographing maiko without permission is bad manners. Some private alleys ban photos.", 'Yasaka Shrine is open 24 hours, and its lanterns are beautiful at night.', 'The Kamo River banks are perfect for an evening walk.'],
+        zh: ['追著舞妓或擅自拍照是不禮貌的。有些私人巷道禁止拍照。', '八坂神社24小時開放，夜晚的燈籠也很美。', '晚上的鴨川河岸很適合散步。'],
+        ko: ['마이코를 쫓아가거나 함부로 찍는 건 실례. 촬영 금지인 사유지 골목도 있다.', '야사카 신사는 24시간 참배할 수 있고, 밤의 등불도 예쁘다.', '밤의 가모강 강변은 산책하기 딱 좋다.'],
+        es: ['Perseguir o fotografiar a las maiko sin permiso es de mala educación. Algunos callejones privados prohíben fotos.', 'El santuario Yasaka abre 24 horas y sus faroles son preciosos de noche.', 'Las orillas del río Kamo son perfectas para un paseo nocturno.'],
+        pt: ['Perseguir ou fotografar maiko sem permissão é falta de educação. Alguns becos privados proíbem fotos.', 'O santuário Yasaka abre 24 horas e suas lanternas são lindas à noite.', 'As margens do rio Kamo são perfeitas para um passeio à noite.']
+      }
+    },
+    {
+      no: 20, pov: 'both', kicker: { top: "TRAVEL SMART!", main: "HANDS-FREE KYOTO!" }, title: { ja: '京都から大阪へ 荷物は預けよう', en: 'Kyoto to Osaka: Travel Hands-Free', zh: '從京都到大阪：行李先寄放', ko: '교토에서 오사카로: 짐은 맡기자', es: 'De Kioto a Osaka: viaja sin maletas', pt: 'De Quioto a Osaka: viaje sem malas' },
+      cta: { label: 'Book Bullet Train Tickets', href: '#', color: 'blue', icon: 'train' },  // 第2話と同じ（新幹線・鉄道予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep20_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 104, y: 361, s: 1 }, leo: { x: 303, y: 347, s: 1 } },
+          scene: 'street', cap: { ja: '京都最終日。大きな荷物を持って、バスで観光しようとしたら…', en: 'Our last day in Kyoto. We tried sightseeing by bus with our big suitcases...', zh: '京都最後一天。拖著大行李想搭公車觀光，結果…', ko: '교토 마지막 날. 큰 짐을 들고 버스로 관광하려고 했더니…', es: 'Último día en Kioto. Quisimos hacer turismo en autobús con nuestras maletas grandes...', pt: 'Último dia em Quioto. Tentamos passear de ônibus com nossas malas grandes...' },
+          chars: [{ id: 'mia', at: 'L', face: 'surprised' }, { id: 'leo', at: 'R', face: 'sad' }],
+          lines: [{ who: 'mia', ja: 'バス、すごい行列…', en: 'Look at that bus line...', zh: '公車排好長…', ko: '버스 줄이 엄청 길어…', es: '¡Qué fila para el bus...!', pt: 'Que fila pro ônibus...', pos: { x: 110, y: 200 } },
+            { who: 'leo', ja: '荷物重い〜', en: 'My bag is so heavy~', zh: '行李好重～', ko: '짐 무거워~', es: 'Mi maleta pesa~', pt: 'Minha mala pesa~', pos: { x: 290, y: 262 } }] },
+        { image: 'images/web/ep20_scene2.jpg', imageSize: [864, 1536], anchors: { mia: { x: 121, y: 319, s: 1 }, leo: { x: 239, y: 305, s: 1 } },
+          scene: 'street', cap: { ja: '京都のバスはとても混む。大きな荷物は、まわりの人の迷惑にもなる。', en: "Kyoto buses get very crowded. Big suitcases get in other people's way, too.", zh: '京都的公車非常擁擠。大行李也會造成別人的困擾。', ko: '교토 버스는 매우 붐빈다. 큰 짐은 다른 사람에게도 불편을 준다.', es: 'Los autobuses de Kioto se llenan mucho. Las maletas grandes también molestan a los demás.', pt: 'Os ônibus de Quioto lotam muito. Malas grandes também atrapalham os outros.' },
+          chars: [{ id: 'mia', at: 'L', face: 'sad' }, { id: 'leo', at: 'R', face: 'sad' }],
+          lines: [{ who: 'mia', ja: '通れない…', en: "We're blocking the way...", zh: '擋到路了…', ko: '길을 막고 있어…', es: 'Estamos estorbando...', pt: 'Estamos atrapalhando...', pos: { x: 105, y: 185 } },
+            { who: 'leo', ja: 'す、すみません…', en: 'S-sorry...', zh: '對、對不起…', ko: '죄, 죄송합니다…', es: 'P-perdón...', pt: 'D-desculpa...', type: 'whisper', pos: { x: 285, y: 215 } }] },
+        { image: 'images/web/ep20_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 155, y: 317, s: 1 }, leo: { x: 258, y: 294, s: 1 } },
+          scene: 'street', cap: { ja: '大きな荷物は駅のコインロッカーへ。観光は手荷物だけでOK。', en: 'Put big suitcases in a station coin locker. Then go sightseeing with just a small bag.', zh: '大行李放進車站的投幣式置物櫃，觀光只帶隨身包就好。', ko: '큰 짐은 역 코인 로커에. 관광은 작은 가방만으로 OK.', es: 'Deja las maletas grandes en un casillero de la estación y pasea solo con una bolsa pequeña.', pt: 'Deixe as malas grandes num armário da estação e passeie só com uma bolsa pequena.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: 'ここに入れちゃおう！', en: "Let's put them in here!", zh: '放這裡吧！', ko: '여기 넣자!', es: '¡Guardémoslas aquí!', pt: 'Vamos guardar aqui!', pos: { x: 105, y: 150 } },
+            { who: 'leo', ja: '入った〜！', en: 'It fits~!', zh: '放進去了～！', ko: '들어갔다~!', es: '¡Cabe~!', pt: 'Coube~!', pos: { x: 295, y: 200 } }] },
+        { image: 'images/web/ep20_scene4.jpg', imageSize: [864, 1536], anchors: { mia: { x: 178, y: 361, s: 1 }, leo: { x: 279, y: 361, s: 1 } },
+          scene: 'room', cap: { ja: 'ワンポイント：もしロッカーが満杯なら、ホテルへ。チェックアウト後も荷物を預かってもらえることが多い。', en: 'Tip: If the lockers are full, ask your hotel. Most hotels keep bags after check-out.', zh: '小提醒：如果置物櫃滿了，就問問飯店。很多飯店退房後也能寄放行李。', ko: '팁: 로커가 꽉 찼다면 호텔에 물어보자. 체크아웃 후에도 짐을 맡아 주는 곳이 많다.', es: 'Consejo: si los casilleros están llenos, pregunta en tu hotel. Muchos guardan el equipaje después del check-out.', pt: 'Dica: se os armários estiverem lotados, pergunte no hotel. Muitos guardam a bagagem depois do check-out.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'sad' }],
+          lines: [{ who: 'mia', ja: '満杯ならホテルへ！', en: 'Lockers full? Ask your hotel!', zh: '滿了就找飯店！', ko: '꽉 차면 호텔로!', es: '¿Llenos? ¡Pregunta en el hotel!', pt: 'Lotou? Pergunte no hotel!', pos: { x: 130, y: 185 } },
+            { who: 'leo', ja: '覚えておこう…', en: 'Good to know...', zh: '記住了…', ko: '기억해 둬야지…', es: 'Bueno saberlo...', pt: 'Bom saber...', pos: { x: 290, y: 280 } }] },
+        { image: 'images/web/ep20_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 122, y: 361, s: 1 }, leo: { x: 268, y: 347, s: 1 } },
+          scene: 'street', cap: { ja: '身軽になれば、混む前の朝の静かな道も楽しめる。', en: 'Traveling light, you can enjoy quiet streets early, before the crowds.', zh: '輕裝出發，就能在人潮湧現前享受清晨安靜的街道。', ko: '몸이 가벼우면 붐비기 전 아침의 조용한 길도 즐길 수 있다.', es: 'Sin equipaje, puedes disfrutar de calles tranquilas temprano, antes de las multitudes.', pt: 'Sem bagagem, dá para curtir ruas tranquilas cedo, antes das multidões.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'happy' }],
+          lines: [{ who: 'mia', ja: '手ぶら最高〜！', en: 'Hands-free is the best~!', zh: '空手出門最棒～！', ko: '빈손 최고~!', es: '¡Sin maletas es lo mejor~!', pt: 'Sem mala é o melhor~!', pos: { x: 110, y: 200 } },
+            { who: 'leo', ja: '体が軽い〜！', en: 'I feel so light~!', zh: '身體好輕鬆～！', ko: '몸이 가벼워~!', es: '¡Me siento ligero~!', pt: 'Que leveza~!', pos: { x: 290, y: 245 } }] },
+        { image: 'images/web/ep20_scene6.jpg', imageSize: [864, 1536], anchors: { leo: { x: 169, y: 319, s: 1 }, mia: { x: 285, y: 347, s: 1 } },
+          scene: 'room', cap: { ja: '夕方、荷物を受け取って電車で大阪へ。手ぶら観光は、自分にもまわりにもやさしい。', en: 'In the evening, we picked up our bags and took the train to Osaka. Traveling light is kinder to you and everyone around you.', zh: '傍晚取回行李，搭電車去大阪。輕裝觀光，對自己和別人都更友善。', ko: '저녁에 짐을 찾아 전철로 오사카에. 가볍게 관광하면 나에게도 주변에도 좋다.', es: 'Por la tarde recogimos las maletas y fuimos en tren a Osaka. Viajar ligero es mejor para ti y para los demás.', pt: 'À tarde pegamos as malas e fomos de trem para Osaka. Viajar leve é melhor para você e para todos.' },
+          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'まだ元気が残ってる！', en: "I've still got energy!", zh: '還有體力！', ko: '아직 힘이 남았어!', es: '¡Todavía tengo energía!', pt: 'Ainda tenho energia!', type: 'shout', pos: { x: 120, y: 190 } },
+            { who: 'mia', ja: 'さあ、大阪！', en: 'Now, Osaka!', zh: '出發，大阪！', ko: '자, 오사카!', es: '¡Vamos, Osaka!', pt: 'Bora, Osaka!', pos: { x: 295, y: 245 } }] }
+      ],
+      tip: {
+        ja: ['大きな荷物は駅のコインロッカーに預けて、観光は手荷物だけで。人気の駅では大型ロッカーが早くうまるので、朝早めに。', 'ロッカーが空いていないときは、駅の手荷物預かり所や、ホテル（チェックイン前・チェックアウト後）で預かってもらえることが多い。', '京都の人気エリアはバスがとても混む。電車・地下鉄と徒歩を組み合わせ、朝早めに動こう。'],
+        en: ['Leave big suitcases in a station coin locker and sightsee with just a small bag. Large lockers at busy stations fill up fast, so go early.', 'If the lockers are full, try the station baggage counter, or ask your hotel. Most hotels keep bags before check-in and after check-out.', 'Buses in popular parts of Kyoto get very crowded. Combine trains, the subway and walking, and start early.'],
+        zh: ['大行李放進車站的投幣式置物櫃，觀光只帶隨身包。熱門車站的大型置物櫃很快就滿，請早點去。', '置物櫃滿了的話，可以找車站的行李寄放處，或請飯店幫忙。多數飯店在入住前和退房後都能寄放行李。', '京都熱門地區的公車非常擁擠。搭配電車、地鐵和步行，早點出門吧。'],
+        ko: ['큰 짐은 역 코인 로커에 맡기고 관광은 작은 가방만으로. 인기 역의 대형 로커는 금방 차니 아침 일찍.', '로커가 꽉 찼다면 역의 짐 보관소나 호텔에 맡기자. 대부분의 호텔은 체크인 전과 체크아웃 후에도 짐을 맡아 준다.', '교토 인기 지역의 버스는 매우 붐빈다. 전철·지하철과 도보를 조합해 아침 일찍 움직이자.'],
+        es: ['Deja las maletas grandes en un casillero de la estación y pasea solo con una bolsa pequeña. Los casilleros grandes se llenan rápido, así que ve temprano.', 'Si están llenos, prueba la consigna de la estación o pregunta en tu hotel. La mayoría guarda el equipaje antes del check-in y después del check-out.', 'En las zonas populares de Kioto los autobuses se llenan mucho. Combina tren, metro y caminatas, y sal temprano.'],
+        pt: ['Deixe as malas grandes num armário da estação e passeie só com uma bolsa pequena. Os armários grandes lotam rápido, então vá cedo.', 'Se estiverem lotados, use o guarda-volumes da estação ou peça ao hotel. A maioria guarda a bagagem antes do check-in e depois do check-out.', 'Nas áreas populares de Quioto os ônibus lotam. Combine trem, metrô e caminhada, e saia cedo.']
+      }
+    },
+    {
+      no: 21, pov: 'both', kicker: { top: "OSAKA FOOD TOUR!", main: "NEVER DOUBLE-DIP!" }, title: { ja: '大阪 道頓堀で食いだおれ', en: 'Osaka: Eat Till You Drop in Dotonbori', zh: '大阪：在道頓堀吃到倒', ko: '오사카: 도톤보리에서 먹다 쓰러지기', es: 'Osaka: comer hasta caer en Dotonbori', pt: 'Osaka: comer até cair em Dotonbori' },
+      cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
+      panels: [
+        { image: 'images/web/ep21_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 147, y: 381, s: 1 }, leo: { x: 280, y: 365, s: 1 } },
+          scene: 'street', cap: { ja: 'ホテルに荷物を置いて、さっそく夕方の大阪の街へ。', en: 'We left our bags at the hotel and headed straight out into Osaka.', zh: '把行李放在飯店，傍晚馬上去逛大阪。', ko: '호텔에 짐을 두고, 저녁의 오사카 거리로 바로 출발.', es: 'Dejamos las maletas en el hotel y salimos enseguida a recorrer Osaka.', pt: 'Deixamos as malas no hotel e saímos logo para curtir Osaka.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: 'にぎやか〜！', en: 'So lively~!', zh: '好熱鬧～！', ko: '북적북적~!', es: '¡Qué animado~!', pt: 'Que animado~!', pos: { x: 110, y: 190 } },
+            { who: 'leo', ja: '京都と全然ちがう！', en: 'So different from Kyoto!', zh: '跟京都完全不一樣！', ko: '교토랑 완전 달라!', es: '¡Nada que ver con Kioto!', pt: 'Bem diferente de Quioto!', pos: { x: 290, y: 250 } }] },
+        { image: 'images/web/ep21_scene2.jpg', imageSize: [864, 1536], anchors: { leo: { x: 147, y: 373, s: 1 }, mia: { x: 270, y: 377, s: 1 } },
+          scene: 'station', cap: { ja: '大阪のエスカレーターは右に立ち、左をあける。東京とは逆！', en: 'In Osaka, people stand on the RIGHT side of escalators and leave the left open. The opposite of Tokyo!', zh: '在大阪，搭手扶梯要站右邊，左邊留給趕路的人。跟東京相反！', ko: '오사카에서는 에스컬레이터 오른쪽에 서고 왼쪽을 비운다. 도쿄와 반대!', es: 'En Osaka, en las escaleras mecánicas uno se para a la DERECHA y deja libre la izquierda. ¡Al revés que en Tokio!', pt: 'Em Osaka, fica-se à DIREITA na escada rolante e deixa-se a esquerda livre. O contrário de Tóquio!' },
+          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'あれ？逆だ！', en: 'Huh? Wrong side!', zh: '咦？站反了！', ko: '어? 반대야!', es: '¿Eh? ¡Lado equivocado!', pt: 'Ué? Lado errado!', type: 'shout', pos: { x: 110, y: 190 } },
+            { who: 'mia', ja: '右に立つんだよ！', en: 'Stand on the right!', zh: '要站右邊！', ko: '오른쪽에 서!', es: '¡A la derecha!', pt: 'Fica à direita!', pos: { x: 290, y: 250 } }] },
+        { image: 'images/web/ep21_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 167, y: 381, s: 1 }, leo: { x: 250, y: 369, s: 1 } },
+          scene: 'street', cap: { ja: '夜の道頓堀。川沿いに巨大な看板とネオンが並ぶ。', en: 'Dotonbori at night: giant signs and neon lights line the canal.', zh: '夜晚的道頓堀，河岸兩旁滿是巨大的看板和霓虹燈。', ko: '밤의 도톤보리. 강변에 거대한 간판과 네온이 늘어서 있다.', es: 'Dotonbori de noche: carteles gigantes y luces de neón a lo largo del canal.', pt: 'Dotonbori à noite: placas gigantes e luzes de neon ao longo do canal.' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: 'まぶしい〜！', en: 'So bright~!', zh: '好刺眼～！', ko: '눈부셔~!', es: '¡Qué brillo~!', pt: 'Que brilho~!', pos: { x: 110, y: 190 } },
+            { who: 'leo', ja: '看板が動いてる！', en: 'The signs are moving!', zh: '看板會動！', ko: '간판이 움직여!', es: '¡Los carteles se mueven!', pt: 'As placas se mexem!', pos: { x: 290, y: 250 } }] },
+        { image: 'images/web/ep21_scene4.jpg', imageSize: [864, 1536], anchors: { leo: { x: 151, y: 318, s: 1 }, mia: { x: 270, y: 326, s: 1 } },
+          scene: 'street', cap: { ja: 'たこ焼きは外はカリッ、中はトロトロ。とても熱いので気をつけて！', en: 'Takoyaki: crispy outside, gooey inside, and VERY hot. Be careful!', zh: '章魚燒外脆內軟，非常燙，小心！', ko: '타코야키는 겉은 바삭, 속은 촉촉. 아주 뜨거우니 조심!', es: 'Takoyaki: crujiente por fuera, cremoso por dentro y MUY caliente. ¡Cuidado!', pt: 'Takoyaki: crocante por fora, cremoso por dentro e MUITO quente. Cuidado!' },
+          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'あつっ!!', en: 'HOT!!', zh: '好燙!!', ko: '뜨거!!', es: '¡¡Quema!!', pt: 'Tá quente!!', type: 'shout', pos: { x: 110, y: 175 } },
+            { who: 'mia', ja: '一口は危ないよ〜', en: 'Not in one bite~', zh: '別一口吃啦～', ko: '한입은 위험해~', es: 'No de un bocado~', pt: 'Não de uma vez~', pos: { x: 295, y: 235 } }] },
+        { image: 'images/web/ep21_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 127, y: 397, s: 1 }, leo: { x: 286, y: 397, s: 1 } },
+          scene: 'room', cap: { ja: '串カツのソースはみんなで使う。だから「二度漬け禁止」！', en: 'The kushikatsu sauce is shared by everyone. So: NO double-dipping!', zh: '串炸的醬汁是大家共用的，所以「禁止沾兩次」！', ko: '쿠시카츠 소스는 모두가 같이 쓴다. 그래서 "두 번 찍기 금지"!', es: 'La salsa del kushikatsu es compartida. Por eso: ¡prohibido mojar dos veces!', pt: 'O molho do kushikatsu é de todos. Por isso: proibido molhar duas vezes!' },
+          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
+          lines: [{ who: 'mia', ja: '二度漬け禁止！', en: 'NO double-dipping!', zh: '禁止沾兩次！', ko: '두 번 찍기 금지!', es: '¡Nada de mojar dos veces!', pt: 'Não molhe duas vezes!', type: 'shout', pos: { x: 110, y: 190 } },
+            { who: 'leo', ja: 'えっ!?', en: 'Huh!?', zh: '咦!?', ko: '엥!?', es: '¿¡Eh!?', pt: 'Hã!?', pos: { x: 290, y: 250 } }] },
+        { image: 'images/web/ep21_scene6.jpg', imageSize: [864, 1536], anchors: { leo: { x: 163, y: 349, s: 1 }, mia: { x: 282, y: 353, s: 1 } },
+          scene: 'street', cap: { ja: 'おなかいっぱい。これが大阪の「食いだおれ」！', en: 'So full! This is Osaka "kuidaore": eating until you drop!', zh: '吃得好飽！這就是大阪的「吃到倒」！', ko: '배불러! 이것이 오사카의 "쿠이다오레(먹다 쓰러지기)"!', es: '¡Llenísimos! Esto es el "kuidaore" de Osaka: comer hasta caer.', pt: 'Que barriga cheia! Isso é o "kuidaore" de Osaka: comer até cair!' },
+          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
+          lines: [{ who: 'leo', ja: 'もう食べられない…', en: "I can't eat another bite...", zh: '吃不下了…', ko: '더는 못 먹어…', es: 'No puedo más...', pt: 'Não aguento mais...', pos: { x: 110, y: 190 } },
+            { who: 'mia', ja: '大阪、最高！', en: 'Osaka is the best!', zh: '大阪最棒！', ko: '오사카 최고!', es: '¡Osaka es lo máximo!', pt: 'Osaka é demais!', pos: { x: 290, y: 250 } }] }
+      ],
+      tip: {
+        ja: ['大阪のエスカレーターは右に立つ人が多い（東京は左）。迷ったら、まわりの人に合わせよう。', '串カツのソースは共用なので二度漬け禁止。ソースを足したいときは、キャベツですくってかけよう。', 'たこ焼きは中がとても熱い。半分に割って、少し冷ましてから食べよう。'],
+        en: ['In Osaka, most people stand on the right side of escalators (in Tokyo, the left). When unsure, just follow the people around you.', 'Kushikatsu sauce is shared, so never double-dip. Need more sauce? Scoop it up with a piece of cabbage.', 'Takoyaki is very hot inside. Break it in half and let it cool a little first.'],
+        zh: ['在大阪，搭手扶梯大多站右邊（東京是左邊）。不確定時，跟著周圍的人就好。', '串炸醬汁是共用的，絕對不能沾兩次。想多加醬汁時，用高麗菜舀起來淋。', '章魚燒裡面非常燙。先掰成兩半，稍微放涼再吃。'],
+        ko: ['오사카에서는 에스컬레이터 오른쪽에 서는 사람이 많다(도쿄는 왼쪽). 헷갈리면 주변 사람을 따라 하자.', '쿠시카츠 소스는 공용이라 두 번 찍기 금지. 소스를 더 원하면 양배추로 떠서 뿌리자.', '타코야키는 속이 아주 뜨겁다. 반으로 갈라 조금 식혀서 먹자.'],
+        es: ['En Osaka, la mayoría se para a la derecha en las escaleras mecánicas (en Tokio, a la izquierda). Si dudas, haz lo que hacen los demás.', 'La salsa del kushikatsu es compartida: nunca mojes dos veces. ¿Quieres más? Sírvela con una hoja de repollo.', 'El takoyaki está muy caliente por dentro. Pártelo por la mitad y deja que se enfríe un poco.'],
+        pt: ['Em Osaka, a maioria fica à direita na escada rolante (em Tóquio, à esquerda). Na dúvida, siga as pessoas ao redor.', 'O molho do kushikatsu é compartilhado: nunca molhe duas vezes. Quer mais? Pegue com uma folha de repolho.', 'O takoyaki é muito quente por dentro. Parta ao meio e deixe esfriar um pouco.']
+      }
     }
   ],
-  // 下書き（未公開）。サイトには表示されない。完成したら episodes の最後へ戻す。
+  // 下書き（未公開）。サイトには表示されない。帰国編は使わない方針（二人は日本旅行を続ける）。保管のみ。
   drafts: [
     {
-      no: 16, pov: 'both', title: { ja: '帰国して気づいたこと', en: 'What We Noticed Back Home' },
+      no: 99, pov: 'both', title: { ja: '帰国して気づいたこと', en: 'What We Noticed Back Home' },
       panels: [
         { scene: 'airport', cap: { ja: '楽しい旅もおしまい。カナダへ帰国。', en: 'The trip is over. Time to fly home to Canada.' },
           chars: [{ id: 'mia', at: 'L', pose: 'wave', face: 'sad' }, { id: 'leo', at: 'R', pose: 'hold', item: 'suitcase', face: 'sad' }],
