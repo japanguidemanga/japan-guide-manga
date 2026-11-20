@@ -882,50 +882,6 @@ window.MANGA = {
         es: ['Deja las maletas grandes en un casillero de la estación y pasea solo con una bolsa pequeña. Los casilleros grandes se llenan rápido, así que ve temprano.', 'Si están llenos, prueba la consigna de la estación o pregunta en tu hotel. La mayoría guarda el equipaje antes del check-in y después del check-out.', 'En las zonas populares de Kioto los autobuses se llenan mucho. Combina tren, metro y caminatas, y sal temprano.'],
         pt: ['Deixe as malas grandes num armário da estação e passeie só com uma bolsa pequena. Os armários grandes lotam rápido, então vá cedo.', 'Se estiverem lotados, use o guarda-volumes da estação ou peça ao hotel. A maioria guarda a bagagem antes do check-in e depois do check-out.', 'Nas áreas populares de Quioto os ônibus lotam. Combine trem, metrô e caminhada, e saia cedo.']
       }
-    },
-    {
-      no: 21, pov: 'both', kicker: { top: "OSAKA FOOD TOUR!", main: "NEVER DOUBLE-DIP!" }, title: { ja: '大阪 道頓堀で食いだおれ', en: 'Osaka: Eat Till You Drop in Dotonbori', zh: '大阪：在道頓堀吃到倒', ko: '오사카: 도톤보리에서 먹다 쓰러지기', es: 'Osaka: comer hasta caer en Dotonbori', pt: 'Osaka: comer até cair em Dotonbori' },
-      cta: { label: 'Book Top Japanese Restaurants & Food Tours', href: '#', color: 'orange', icon: 'food' },  // 第3話と同じ（グルメ・体験予約）。href を差し替える
-      panels: [
-        { image: 'images/web/ep21_scene1.jpg', imageSize: [864, 1536], anchors: { mia: { x: 147, y: 381, s: 1 }, leo: { x: 280, y: 365, s: 1 } },
-          scene: 'street', cap: { ja: 'ホテルに荷物を置いて、さっそく夕方の大阪の街へ。', en: 'We left our bags at the hotel and headed straight out into Osaka.', zh: '把行李放在飯店，傍晚馬上去逛大阪。', ko: '호텔에 짐을 두고, 저녁의 오사카 거리로 바로 출발.', es: 'Dejamos las maletas en el hotel y salimos enseguida a recorrer Osaka.', pt: 'Deixamos as malas no hotel e saímos logo para curtir Osaka.' },
-          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
-          lines: [{ who: 'mia', ja: 'にぎやか〜！', en: 'So lively~!', zh: '好熱鬧～！', ko: '북적북적~!', es: '¡Qué animado~!', pt: 'Que animado~!', pos: { x: 110, y: 190 } },
-            { who: 'leo', ja: '京都と全然ちがう！', en: 'So different from Kyoto!', zh: '跟京都完全不一樣！', ko: '교토랑 완전 달라!', es: '¡Nada que ver con Kioto!', pt: 'Bem diferente de Quioto!', pos: { x: 290, y: 250 } }] },
-        { image: 'images/web/ep21_scene2.jpg', imageSize: [864, 1536], anchors: { leo: { x: 147, y: 373, s: 1 }, mia: { x: 270, y: 377, s: 1 } },
-          scene: 'station', cap: { ja: '大阪のエスカレーターは右に立ち、左をあける。東京とは逆！', en: 'In Osaka, people stand on the RIGHT side of escalators and leave the left open. The opposite of Tokyo!', zh: '在大阪，搭手扶梯要站右邊，左邊留給趕路的人。跟東京相反！', ko: '오사카에서는 에스컬레이터 오른쪽에 서고 왼쪽을 비운다. 도쿄와 반대!', es: 'En Osaka, en las escaleras mecánicas uno se para a la DERECHA y deja libre la izquierda. ¡Al revés que en Tokio!', pt: 'Em Osaka, fica-se à DIREITA na escada rolante e deixa-se a esquerda livre. O contrário de Tóquio!' },
-          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'mia', at: 'R', face: 'happy' }],
-          lines: [{ who: 'leo', ja: 'あれ？逆だ！', en: 'Huh? Wrong side!', zh: '咦？站反了！', ko: '어? 반대야!', es: '¿Eh? ¡Lado equivocado!', pt: 'Ué? Lado errado!', type: 'shout', pos: { x: 110, y: 190 } },
-            { who: 'mia', ja: '右に立つんだよ！', en: 'Stand on the right!', zh: '要站右邊！', ko: '오른쪽에 서!', es: '¡A la derecha!', pt: 'Fica à direita!', pos: { x: 290, y: 250 } }] },
-        { image: 'images/web/ep21_scene3.jpg', imageSize: [864, 1536], anchors: { mia: { x: 167, y: 381, s: 1 }, leo: { x: 250, y: 369, s: 1 } },
-          scene: 'street', cap: { ja: '夜の道頓堀。川沿いに巨大な看板とネオンが並ぶ。', en: 'Dotonbori at night: giant signs and neon lights line the canal.', zh: '夜晚的道頓堀，河岸兩旁滿是巨大的看板和霓虹燈。', ko: '밤의 도톤보리. 강변에 거대한 간판과 네온이 늘어서 있다.', es: 'Dotonbori de noche: carteles gigantes y luces de neón a lo largo del canal.', pt: 'Dotonbori à noite: placas gigantes e luzes de neon ao longo do canal.' },
-          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
-          lines: [{ who: 'mia', ja: 'まぶしい〜！', en: 'So bright~!', zh: '好刺眼～！', ko: '눈부셔~!', es: '¡Qué brillo~!', pt: 'Que brilho~!', pos: { x: 110, y: 190 } },
-            { who: 'leo', ja: '看板が動いてる！', en: 'The signs are moving!', zh: '看板會動！', ko: '간판이 움직여!', es: '¡Los carteles se mueven!', pt: 'As placas se mexem!', pos: { x: 290, y: 250 } }] },
-        { image: 'images/web/ep21_scene4.jpg', imageSize: [864, 1536], anchors: { leo: { x: 151, y: 318, s: 1 }, mia: { x: 270, y: 326, s: 1 } },
-          scene: 'street', cap: { ja: 'たこ焼きは外はカリッ、中はトロトロ。とても熱いので気をつけて！', en: 'Takoyaki: crispy outside, gooey inside, and VERY hot. Be careful!', zh: '章魚燒外脆內軟，非常燙，小心！', ko: '타코야키는 겉은 바삭, 속은 촉촉. 아주 뜨거우니 조심!', es: 'Takoyaki: crujiente por fuera, cremoso por dentro y MUY caliente. ¡Cuidado!', pt: 'Takoyaki: crocante por fora, cremoso por dentro e MUITO quente. Cuidado!' },
-          chars: [{ id: 'leo', at: 'L', face: 'surprised' }, { id: 'mia', at: 'R', face: 'happy' }],
-          lines: [{ who: 'leo', ja: 'あつっ!!', en: 'HOT!!', zh: '好燙!!', ko: '뜨거!!', es: '¡¡Quema!!', pt: 'Tá quente!!', type: 'shout', pos: { x: 110, y: 175 } },
-            { who: 'mia', ja: '一口は危ないよ〜', en: 'Not in one bite~', zh: '別一口吃啦～', ko: '한입은 위험해~', es: 'No de un bocado~', pt: 'Não de uma vez~', pos: { x: 295, y: 235 } }] },
-        { image: 'images/web/ep21_scene5.jpg', imageSize: [864, 1536], anchors: { mia: { x: 127, y: 397, s: 1 }, leo: { x: 286, y: 397, s: 1 } },
-          scene: 'room', cap: { ja: '串カツのソースはみんなで使う。だから「二度漬け禁止」！', en: 'The kushikatsu sauce is shared by everyone. So: NO double-dipping!', zh: '串炸的醬汁是大家共用的，所以「禁止沾兩次」！', ko: '쿠시카츠 소스는 모두가 같이 쓴다. 그래서 "두 번 찍기 금지"!', es: 'La salsa del kushikatsu es compartida. Por eso: ¡prohibido mojar dos veces!', pt: 'O molho do kushikatsu é de todos. Por isso: proibido molhar duas vezes!' },
-          chars: [{ id: 'mia', at: 'L', face: 'happy' }, { id: 'leo', at: 'R', face: 'surprised' }],
-          lines: [{ who: 'mia', ja: '二度漬け禁止！', en: 'NO double-dipping!', zh: '禁止沾兩次！', ko: '두 번 찍기 금지!', es: '¡Nada de mojar dos veces!', pt: 'Não molhe duas vezes!', type: 'shout', pos: { x: 110, y: 190 } },
-            { who: 'leo', ja: 'えっ!?', en: 'Huh!?', zh: '咦!?', ko: '엥!?', es: '¿¡Eh!?', pt: 'Hã!?', pos: { x: 290, y: 250 } }] },
-        { image: 'images/web/ep21_scene6.jpg', imageSize: [864, 1536], anchors: { leo: { x: 163, y: 349, s: 1 }, mia: { x: 282, y: 353, s: 1 } },
-          scene: 'street', cap: { ja: 'おなかいっぱい。これが大阪の「食いだおれ」！', en: 'So full! This is Osaka "kuidaore": eating until you drop!', zh: '吃得好飽！這就是大阪的「吃到倒」！', ko: '배불러! 이것이 오사카의 "쿠이다오레(먹다 쓰러지기)"!', es: '¡Llenísimos! Esto es el "kuidaore" de Osaka: comer hasta caer.', pt: 'Que barriga cheia! Isso é o "kuidaore" de Osaka: comer até cair!' },
-          chars: [{ id: 'leo', at: 'L', face: 'happy' }, { id: 'mia', at: 'R', face: 'happy' }],
-          lines: [{ who: 'leo', ja: 'もう食べられない…', en: "I can't eat another bite...", zh: '吃不下了…', ko: '더는 못 먹어…', es: 'No puedo más...', pt: 'Não aguento mais...', pos: { x: 110, y: 190 } },
-            { who: 'mia', ja: '大阪、最高！', en: 'Osaka is the best!', zh: '大阪最棒！', ko: '오사카 최고!', es: '¡Osaka es lo máximo!', pt: 'Osaka é demais!', pos: { x: 290, y: 250 } }] }
-      ],
-      tip: {
-        ja: ['大阪のエスカレーターは右に立つ人が多い（東京は左）。迷ったら、まわりの人に合わせよう。', '串カツのソースは共用なので二度漬け禁止。ソースを足したいときは、キャベツですくってかけよう。', 'たこ焼きは中がとても熱い。半分に割って、少し冷ましてから食べよう。'],
-        en: ['In Osaka, most people stand on the right side of escalators (in Tokyo, the left). When unsure, just follow the people around you.', 'Kushikatsu sauce is shared, so never double-dip. Need more sauce? Scoop it up with a piece of cabbage.', 'Takoyaki is very hot inside. Break it in half and let it cool a little first.'],
-        zh: ['在大阪，搭手扶梯大多站右邊（東京是左邊）。不確定時，跟著周圍的人就好。', '串炸醬汁是共用的，絕對不能沾兩次。想多加醬汁時，用高麗菜舀起來淋。', '章魚燒裡面非常燙。先掰成兩半，稍微放涼再吃。'],
-        ko: ['오사카에서는 에스컬레이터 오른쪽에 서는 사람이 많다(도쿄는 왼쪽). 헷갈리면 주변 사람을 따라 하자.', '쿠시카츠 소스는 공용이라 두 번 찍기 금지. 소스를 더 원하면 양배추로 떠서 뿌리자.', '타코야키는 속이 아주 뜨겁다. 반으로 갈라 조금 식혀서 먹자.'],
-        es: ['En Osaka, la mayoría se para a la derecha en las escaleras mecánicas (en Tokio, a la izquierda). Si dudas, haz lo que hacen los demás.', 'La salsa del kushikatsu es compartida: nunca mojes dos veces. ¿Quieres más? Sírvela con una hoja de repollo.', 'El takoyaki está muy caliente por dentro. Pártelo por la mitad y deja que se enfríe un poco.'],
-        pt: ['Em Osaka, a maioria fica à direita na escada rolante (em Tóquio, à esquerda). Na dúvida, siga as pessoas ao redor.', 'O molho do kushikatsu é compartilhado: nunca molhe duas vezes. Quer mais? Pegue com uma folha de repolho.', 'O takoyaki é muito quente por dentro. Parta ao meio e deixe esfriar um pouco.']
-      }
     }
   ],
   // 下書き（未公開）。サイトには表示されない。帰国編は使わない方針（二人は日本旅行を続ける）。保管のみ。
